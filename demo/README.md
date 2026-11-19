@@ -6,7 +6,9 @@
 
 - Formulario: dirección + coche identificado **por etiqueta o por matrícula** (un selector; solo se ve un campo) + padrón → veredicto único (✔ / ⚠ solo para aparcar / ✖), con el motivo, la dirección entendida y la norma.
 - La matrícula se valida con las reglas españolas antes de buscarla y, si no es válida, se explica por qué (vocales, Q, Ñ, provincia inexistente, formato extranjero…). Formato válido pero no registrado → mensaje para revisarla o usar «Por etiqueta». Moto → «Por ahora solo comprobamos coches». Históricos: opción «Vehículo histórico (pegatina H)» o matrícula `H 1234 BCD`.
-- Mapa con las 3 zonas oficiales coloreadas según la etiqueta elegida y las 603 cámaras.
+- Autocompletar la dirección con sugerencias de CartoCiudad (solo Madrid) a partir de 3 letras.
+- Dos secciones: «1 Incluir datos» y «2 Ver mapa». El mapa no se abre solo: el resultado trae un botón «Ver en el mapa». El mapa muestra las 3 zonas oficiales coloreadas según la etiqueta (compartida con el formulario) y las 603 cámaras, que crecen con el zoom.
+- Diseño: el veredicto se muestra como una señal de tráfico (con placa «Excepto…» cuando solo se puede entrar para aparcar) y la etiqueta se elige entre pegatinas. Detalles en la sección 7.4 del documento de diseño.
 
 **Aún no:** alternativas (parkings, disuasorios, punto permitido más cercano), duración, paradas de transporte.
 

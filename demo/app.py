@@ -21,6 +21,7 @@ from ingest_dgt import CODIGOS, DB
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CARTOCIUDAD = "https://www.cartociudad.es/geocoder/api/geocoder/find"
+CARTOCIUDAD_CANDIDATOS = "https://www.cartociudad.es/geocoder/api/geocoder/candidates"
 MUNICIPIO_MADRID = "28079"
 Etiqueta = Literal["CERO", "ECO", "C", "B", "A", "H"]  # H = vehículo histórico (pegatina H)
 Padron = Literal["fuera", "madrid", "centro"]
@@ -75,18 +76,34 @@ def veredicto(lng, lat, etiqueta, padron, hoy):
     return r, zona
 
 
+def consulta_geocodificador(direccion):
+    """CartoCiudad se equivoca de portal con el código postal («Calle Alcalá 30, 28014» -> Alcalá 380): se quita.
+    Y se añade «Madrid» si no está, para no acabar en la Calle Mayor de otro municipio."""
+    sin_cp = " ".join(re.sub(r"\b28\d{3}\b", " ", direccion).split())
+    sin_cp = re.sub(r"\s*,(\s*,)*\s*", ", ", sin_cp).strip(" ,")
+    return sin_cp if "madrid" in sin_cp.lower() else f"{sin_cp}, Madrid"
+
+
 @lru_cache(maxsize=1024)
 def geocodificar(direccion):
-    consulta = direccion if "madrid" in direccion.lower() else f"{direccion}, Madrid"
-    r = httpx.get(CARTOCIUDAD, params={"q": consulta}, timeout=5)
+    r = httpx.get(CARTOCIUDAD, params={"q": consulta_geocodificador(direccion)}, timeout=5)
     r.raise_for_status()
     datos = r.json() if r.content.strip() else None
     return datos if datos and datos.get("lat") is not None else None
 
 
+MINUSCULAS = {"de", "del", "la", "las", "los", "el", "y"}
+
+
+def titulo(texto):
+    """CartoCiudad devuelve las calles en mayúsculas: «CALLE DE LA PAZ» -> «Calle de la Paz»."""
+    palabras = texto.lower().split()
+    return " ".join(p if i and p in MINUSCULAS else p.capitalize() for i, p in enumerate(palabras))
+
+
 def texto_direccion(d):
     calle = " ".join(str(d[k]) for k in ("tip_via", "address", "portalNumber") if d.get(k))
-    return f"{calle}, {d.get('postalCode') or ''} {d.get('poblacion') or ''}".strip(" ,")
+    return f"{titulo(calle)}, {d.get('postalCode') or ''} {d.get('poblacion') or ''}".strip(" ,")
 
 
 # Sacadas del propio fichero de la DGT (38,7 M matrículas): letras del formato actual y códigos de provincia antiguos.
@@ -119,6 +136,27 @@ def validar_matricula(matricula):
             return None, "Las matrículas antiguas no llevan la letra Q."
         return (provincia + resto.zfill(6) if resto.isdigit() else m), None  # el fichero guarda las numéricas con 6 cifras
     return None, f"{FORMATOS}. Si tu coche tiene matrícula extranjera, identifícalo «Por etiqueta»."
+
+
+@lru_cache(maxsize=1024)
+def sugerir(texto):
+    """Direcciones de Madrid que empiezan como lo escrito: «mayor 10» -> («Calle Mayor 10, 28013 Madrid», …)."""
+    r = httpx.get(CARTOCIUDAD_CANDIDATOS, timeout=5, params={
+        "q": texto, "limit": 6, "municipio_filter": "Madrid",
+        "no_process": "municipio,poblacion,toponimo,expendeduria,ngbe",  # solo calles y portales
+    })
+    r.raise_for_status()
+    sugerencias = []
+    for c in r.json():
+        calle = titulo(c.get("address", "").split(",")[0])  # «CALLE MAYOR 10, Madrid» -> «Calle Mayor 10»
+        sugerencia = f"{calle}, Madrid"  # sin código postal: confunde al geocodificador
+        if calle and sugerencia not in sugerencias:
+            sugerencias.append(sugerencia)
+    return tuple(sugerencias)
+
+
+class Busqueda(BaseModel):
+    texto: str = Field(min_length=3, max_length=200)
 
 
 class Consulta(BaseModel):
@@ -183,7 +221,7 @@ def comprobar(c: Consulta):
     nota = None
     if origen == "dgt" and etiqueta == "A" and r["veredicto"] == "no_puede":
         # Un histórico con su matrícula original sale como «sin etiqueta» en el fichero de la DGT.
-        nota = "Si tu coche lleva la pegatina H de vehículo histórico, compruébalo «Por etiqueta» → Vehículo histórico."
+        nota = "Si tu coche lleva la pegatina H de vehículo histórico, compruébalo «Por etiqueta» eligiendo «Histórico»."
     return {
         "estado": "ok",
         "veredicto": r["veredicto"],
@@ -195,6 +233,15 @@ def comprobar(c: Consulta):
         "destino": destino,
         "nota": nota,
     }
+
+
+# POST y no GET: lo que escribe el usuario no debe acabar en el registro de accesos (va en el cuerpo).
+@app.post("/api/direcciones")
+def direcciones(b: Busqueda):
+    try:
+        return {"sugerencias": list(sugerir(" ".join(b.texto.lower().split())))}
+    except httpx.HTTPError:
+        return {"sugerencias": []}  # sin sugerencias se puede seguir escribiendo la dirección a mano
 
 
 @app.get("/api/zonas")

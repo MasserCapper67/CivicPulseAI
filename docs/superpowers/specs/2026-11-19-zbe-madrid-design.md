@@ -34,7 +34,8 @@ Ordenados por impacto. Si alguno falla, la app da respuestas falsas o la demo se
 
 **5. Entender bien la dirección**
 - *Riesgo:* «Calle Mayor 10» existe en muchos municipios. Si CartoCiudad devuelve otro, el veredicto es de otro sitio.
-- *Cómo se cubre:* filtro de municipio (o añadir «, Madrid»), comprobar `muniCode = 28079` y mostrar siempre la dirección entendida («Destino: CALLE MAYOR 10, 28013 Madrid») para que el usuario pueda verla.
+- *Cómo se cubre:* autocompletar con sugerencias solo de Madrid, añadir «, Madrid» a la consulta, comprobar `muniCode = 28079` y mostrar siempre la dirección entendida bajo el veredicto («Calle Mayor 10, 28013 Madrid").
+- *Trampa comprobada (19/11/2026):* CartoCiudad se equivoca de portal si la consulta lleva el código postal («Calle Alcalá 30, 28014 Madrid» → Alcalá 380; «Calle Mayor 10, 28013» → Mayor 11). Por eso los códigos postales `28xxx` se quitan antes de geocodificar y las sugerencias no los llevan.
 
 **6. Privacidad y seguridad**
 - *Riesgo:* matrícula + dirección + padrón revelan dónde vive alguien y a dónde va. Los nombres de parkings y las direcciones vienen de fuera (XSS).
@@ -108,26 +109,34 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 
 ## 7. Experiencia de usuario
 
-### 7.1 Pantalla única
+### 7.1 Dos secciones: «1 Incluir datos» y «2 Ver mapa» (decisión del equipo)
+
+El mapa no está siempre a la vista: así el formulario es muy sencillo, sobre todo en móvil.
 
 ```
 ┌──────────────────────────────────────────┐
 │  ¿Puedo entrar con mi coche?             │
+│  (1) Incluir datos    (2) Ver mapa       │  ← pestañas
+├──────────────────────────────────────────┤
 │  ¿A dónde vas?   [ Calle Mayor 10    ]   │
 │  ¿Cómo identificas tu coche?             │
 │  [ Por etiqueta ]  [ Por matrícula ]     │
-│  Etiqueta ambiental [ Elige tu etiqueta ▾]│
+│  La etiqueta de tu parabrisas            │
+│  (0) (ECO) (C) (B) ( ) (H)               │  ← pegatinas
 │  ¿Dónde estás empadronado?               │
 │  ( ) Fuera de Madrid                     │
 │  ( ) En Madrid                           │
 │  ( ) En Distrito Centro                  │
 │              [ Comprobar ]               │
-├──────────────────────────────────────────┤
-│  (resultado)                             │
-├──────────────────────────────────────────┤
-│  (mapa · filtro de etiqueta · capas)     │
+│  (resultado: señal + [ Ver en el mapa ]) │
 └──────────────────────────────────────────┘
 ```
+
+- **Autocompletar la dirección** (decisión del equipo): a partir de 3 letras aparece una lista de hasta 6 direcciones de Madrid («Calle Alcala 30, Madrid»), con flechas, Intro, Escape y ratón (patrón ARIA combobox). No se usa `<datalist>`: Firefox no refresca bien sus opciones cuando llegan con retraso.
+- En escritorio, la cabecera y el formulario van centrados con la misma anchura (30rem); el mapa ocupa todo el ancho.
+- Al comprobar, el mapa **no** se abre solo: el resultado (cuando hay veredicto) trae un botón «Ver en el mapa» que abre la sección 2 centrada en el destino.
+- Las pestañas son accesibles (`role="tab"`, flechas izquierda/derecha). El mapa se crea la primera vez que se abre su sección: en móvil no se descargan teselas que no se miran.
+- **Un solo estado** para formulario, resultado y mapa: si cambia cualquier dato del formulario, el resultado anterior se borra (ya no corresponde); elegir una pegatina en el mapa la elige también en el formulario (y lo pasa a «Por etiqueta»).
 
 - Obligatorios: dirección, padrón y **o la etiqueta o la matrícula, nunca las dos**. Un selector «Por etiqueta / Por matrícula» (por defecto, por etiqueta) muestra solo uno de los dos campos, para que lo que se ve coincida siempre con lo que se comprueba (decisión del equipo). Con matrícula, el resultado indica «según la DGT». El padrón **no** viene marcado por defecto: si se asumiera uno, quien no lo lea recibiría un resultado equivocado.
 - La matrícula se acepta con o sin espacios, puntos y guiones, y **se valida antes de buscarla** con las reglas españolas (sección 8.4). Si no es válida, el mensaje dice por qué (p. ej. «Las matrículas actuales no llevan vocales (A)…»).
@@ -152,7 +161,7 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 - **Tiempo de cada alternativa** = tiempo desde que el usuario deja el coche hasta su destino (andando o en transporte público). No se pide origen porque sería otro campo. **[decisión de diseño]**
 - Si la matrícula tiene un formato válido pero no está en el registro de la DGT: «No encontramos esta matrícula en el registro de la DGT. Revísala o identifica tu coche «Por etiqueta»». No hay un segundo paso para elegir la etiqueta (decisión del equipo).
 - Si es moto: «Por ahora solo comprobamos coches».
-- **Vehículos históricos** (decisión del equipo, opción A): el desplegable «Por etiqueta» incluye «Vehículo histórico (pegatina H)», así que no hace falta ninguna pregunta más. Por matrícula, las `H 1234 BCD` se reconocen como históricas por su formato (no están en el fichero de distintivos). Un histórico que conserva su matrícula original aparece en la DGT como `SIN DISTINTIVO`: si la matrícula da «sin etiqueta» y el veredicto es «no puede», el resultado añade la nota «Si tu coche lleva la pegatina H de vehículo histórico, compruébalo «Por etiqueta» → Vehículo histórico».
+- **Vehículos históricos** (decisión del equipo, opción A): el desplegable «Por etiqueta» incluye «Vehículo histórico (pegatina H)», así que no hace falta ninguna pregunta más. Por matrícula, las `H 1234 BCD` se reconocen como históricas por su formato (no están en el fichero de distintivos). Un histórico que conserva su matrícula original aparece en la DGT como `SIN DISTINTIVO`: si la matrícula da «sin etiqueta» y el veredicto es «no puede», el resultado añade la nota «Si tu coche lleva la pegatina H de vehículo histórico, compruébalo «Por etiqueta» eligiendo «Histórico»».
 - La dirección entendida va en la segunda línea del resultado, justo bajo el veredicto («Tetuan» se entiende como la calle de Tetuán, junto a Sol, no como el distrito).
 - Si la dirección no se encuentra o está fuera del municipio, un mensaje que lo dice y deja corregirla.
 - El veredicto no depende solo del color: icono + texto (accesibilidad).
@@ -161,9 +170,20 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 ### 7.3 Mapa
 
 - Leaflet con teselas de OpenStreetMap (con su atribución), centrado en Madrid.
-- **Filtro de etiqueta**: botones 0 · ECO · C · B · Sin etiqueta. Tras una comprobación se selecciona solo la etiqueta del coche. El padrón se toma del formulario; si aún no se ha respondido, se usa «Fuera de Madrid». **[decisión de diseño]**
-- **Zonas coloreadas** según el veredicto para la etiqueta elegida: verde (puede), ámbar (solo para aparcar), rojo (no puede). Sin etiqueta elegida, las zonas se dibujan en gris.
-- **Capas** activables: cámaras de la ZBE y de Distrito Centro, parkings (con plazas libres si hay dato en tiempo real), disuasorios, paradas de metro/cercanías y EMT.
+- **Filtro de pegatinas en la sección del mapa**, compartido con el formulario (nunca muestran etiquetas distintas): colorea las zonas para la pegatina y el padrón elegidos; por matrícula, para la etiqueta que devuelve la comprobación. Una línea sobre el mapa dice qué se está viendo («Zonas para un coche con etiqueta B de fuera de Madrid»). Sin padrón elegido, se usa «Fuera de Madrid». **[decisión de diseño]**
+- **Zonas coloreadas** según el veredicto, con los colores de las señales: azul (puede), amarillo con borde discontinuo (solo para aparcar), rojo (no puede). Sin etiqueta elegida, en gris. Azul, amarillo y rojo se distinguen mejor que verde y rojo con daltonismo, y el discontinuo no depende del color.
+
+### 7.4 Diseño visual
+
+- **Idea:** el veredicto es una **señal de tráfico** española: disco azul con coche blanco (puedes), aro rojo con coche negro (no puedes) y aro rojo con la **placa complementaria** «Excepto para aparcar en un aparcamiento» (solo para aparcar). Es lo único llamativo de la página; el resto es sobrio.
+- **La etiqueta se elige por su aspecto:** una tira de 6 pegatinas redondas con sus colores (0, ECO, C, B, sin etiqueta y H), como se ven en el parabrisas.
+- **Color** (semántica de la señalización): hormigón `#E2E4E1` (fondo), blanco `#FFFFFF` (paneles y placas), asfalto `#24272B` (texto), azul señal `#0B4EA2` (permitido y acción principal), rojo señal `#C8102E` (prohibido), amarillo `#F2B705` (condicional y provisional: la franja de «Prototipo»), violeta `#6A2C91` (cámaras). Modo oscuro con los mismos papeles; la señal y la placa no cambian de color.
+- **Tipografía:** Barlow (inspirada en la rotulación de carreteras) para el texto y Barlow Condensed para el título, el veredicto y la placa. Servidas desde `static/vendor/fonts/` (licencia OFL); la CSP no admite CDN.
+- **Movimiento:** solo la aparición de la señal al comprobar (desactivada con «reducir movimiento»). Al comprobar, la vista se desplaza al resultado.
+- **Accesibilidad:** foco visible en todos los controles, radios nativos (ocultos visualmente) bajo las pegatinas y el selector, el resultado en una región `aria-live`, contraste AA también en modo oscuro.
+- **Cámaras:** violetas con borde blanco (ningún color de zona es violeta) y tamaño según el zoom: punto de 10 px a escala de ciudad, 18 px con pictograma de cámara desde el zoom 14 y 26 px desde el 16. No entran en el recorrido del tabulador (son 603).
+- La ZBE general se dibuja con trazo fino (es todo el municipio, con huecos en las autovías) para no tapar las ZBEDEP.
+- **Capas** futuras: cámaras de la ZBE y de Distrito Centro, parkings (con plazas libres si hay dato en tiempo real), disuasorios, paradas de metro/cercanías y EMT.
 - Las ventanas emergentes se construyen con elementos del DOM, nunca con cadenas HTML (sección 9).
 - Hay miles de paradas EMT: el mapa usa `preferCanvas: true` y la capa de paradas EMT solo se pinta a partir de cierto nivel de zoom. **[decisión de diseño]**
 
@@ -256,6 +276,8 @@ Con `estado = ok`:
 ```
 Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje genérico, sin traza.
 
+**`POST /api/direcciones`** `{ "texto": "alcala 30" }` (3 a 200 caracteres) → `{ "sugerencias": ["Calle Alcala 30, Madrid", …] }`. POST y no GET para que lo escrito no quede en el registro de accesos. Si CartoCiudad falla, lista vacía.
+
 **`GET /api/zonas?etiqueta=B&padron=fuera`** → GeoJSON de las zonas con la propiedad `veredicto` calculada por el mismo motor de reglas (así el mapa nunca duplica la lógica en JavaScript).
 
 **`GET /api/parkings`** → parkings con plazas libres y tarifas del servicio en tiempo real (caché de 5 min). Si el servicio falla, la lista fija sin ocupación.
@@ -305,7 +327,8 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 - Orden por minutos; máximo 5 alternativas; `mas_barata` en la de menor coste conocido.
 
 **externos.py** (llamadas a servicios externos: el código del servidor que pide datos a servicios de terceros)
-- **CartoCiudad** `https://www.cartociudad.es/geocoder/api/geocoder/find?q=…` (medido: ~1,3 s; devuelve `lat`, `lng`, `muniCode`, `type`, `postalCode`). Fuera de Madrid si `muniCode != "28079"`. Para evitar coincidencias en otros municipios, se usa el filtro de municipio de la API si existe; si no, se añade «, Madrid» a la consulta. Caché `lru_cache(maxsize=1024)` sobre la dirección normalizada.
+- **CartoCiudad** `https://www.cartociudad.es/geocoder/api/geocoder/find?q=…` (medido: ~1,3 s; devuelve `lat`, `lng`, `muniCode`, `type`, `postalCode`). Fuera de Madrid si `muniCode != "28079"`. Se quitan los códigos postales `28xxx` (confunden el portal, ver punto crítico 5) y se añade «, Madrid» si no está.
+- **CartoCiudad (sugerencias)** `…/geocoder/candidates?q=…&limit=6&municipio_filter=Madrid&no_process=municipio,poblacion,toponimo,expendeduria,ngbe` (medido: ~0,25 s): solo calles y portales de Madrid. Ojo: `municipio_filter=28079` no devuelve nada; hay que pasar el nombre. Caché `lru_cache(maxsize=1024)`. Caché `lru_cache(maxsize=1024)` sobre la dirección normalizada.
 - **Parkings en tiempo real**: SOAP `https://servayto.madrid.es/MTPAR_WSINFO/InfoParking?wsdl` (comprobado que responde; incluye ocupación, tarifas y coordenadas). Se construye la petición con `httpx` y se lee con `xml.etree` de la librería estándar. Caché de 5 min; si falla, lista fija.
 - Todas las URL externas son fijas en el código y el texto del usuario solo va como parámetro codificado. Tiempo límite: 5 s.
 
@@ -384,6 +407,5 @@ Cada paso deja la app presentable por sí solo.
 - Confirmar el perímetro de Distrito Centro con el anexo y el significado de `Via_Out` en `ZBE_TM`.
 - Decidir cómo cubrir a los residentes de los 5 barrios de Plaza Elíptica (hoy la pregunta del padrón no los distingue).
 - Explorar las operaciones del SOAP de parkings y el formato de las tarifas.
-- Comprobar el filtro de municipio de CartoCiudad.
 - Confirmar en el BOAM el régimen de los históricos: exentos en la ZBE general (art. 21.3 OMS según la [página de Madrid ZBE](https://madrid.es/go/KilV)), en Plaza Elíptica (lo menciona la corrección del BOCM) y en Distrito Centro (hoy «no puede» por precaución), y si hay límite de días al año (la prensa de 2024-2025 habla de 96). Reglamento de referencia: Real Decreto 892/2024.
 - Actualizar `AI_USAGE.md` y añadir al README los enlaces a las fuentes.

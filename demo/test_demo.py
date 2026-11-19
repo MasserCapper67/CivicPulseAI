@@ -58,4 +58,12 @@ for mal in ({"matricula": "  "}, {"etiqueta": "B", "matricula": "0001CVG"}):  # 
     except ValidationError:
         pass
 
+from app import consulta_geocodificador, titulo  # noqa: E402
+assert consulta_geocodificador("Calle Alcala 30, 28014 Madrid") == "Calle Alcala 30, Madrid"
+assert consulta_geocodificador("Calle Alcala 30, 28014") == "Calle Alcala 30, Madrid"
+assert consulta_geocodificador("Calle Mayor 10") == "Calle Mayor 10, Madrid"
+assert consulta_geocodificador("Calle Mayor 10, Madrid") == "Calle Mayor 10, Madrid"
+assert titulo("CALLE DE LA PAZ 3") == "Calle de la Paz 3"
+assert titulo("PLAZA DEL CALLAO") == "Plaza del Callao"
+
 print("ok")

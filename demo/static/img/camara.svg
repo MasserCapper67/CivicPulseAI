@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
+  <!-- Cámara de control de acceso: cuerpo inclinado, visera y soporte a la pared -->
+  <g transform="rotate(-14 12 10)">
+    <rect x="3.5" y="6.5" width="12.5" height="6" rx="1.2"/>
+    <path d="M16 7.5h4.5l-1.5 4h-3z"/>
+  </g>
+  <path d="M8.2 12.6h2v4.2H5.6v3.4H3.6v-8.6h2v3.2h2.6z"/>
+</svg>
