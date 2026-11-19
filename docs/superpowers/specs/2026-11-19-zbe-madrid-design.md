@@ -2,6 +2,7 @@
 
 - **Fecha:** 19/11/2026
 - **Estado:** borrador para aprobación
+- **Prototipo desechable:** [`demo/`](../../../demo/README.md) (iteración 1: veredicto + mapa con datos reales y reglas provisionales)
 - **Diagrama:** [`docs/arquitectura.excalidraw`](../../arquitectura.excalidraw) (editable en excalidraw.com o en VS Code)
 - **Regla del proyecto ([`CLAUDE.md`](../../../CLAUDE.md)):** las funcionalidades deben ser siempre lo más sencillas posible para el usuario final: una única respuesta clara, sin ramas ni opciones que tenga que interpretar.
 
@@ -9,17 +10,59 @@ Las decisiones marcadas **[decisión de diseño]** las tomó quien redactó el d
 
 ---
 
+## 0. Puntos críticos (leer primero)
+
+Ordenados por impacto. Si alguno falla, la app da respuestas falsas o la demo se cae.
+
+**1. Que las reglas sean correctas (`data/reglas.json`)**
+- *Riesgo:* un «✔» equivocado le cuesta una multa al usuario (200 € según prensa) y la app pierde su razón de ser.
+- *Por qué es difícil:* las reglas solo están en el texto legal (Ordenanza 2/2026, BOAM nº 10.103). La prensa se contradice (B y C en Plaza Elíptica). La moratoria de los empadronados acaba el 31/12/2026. La fecha de entrada en vigor y el ámbito de la ZBE general están sin confirmar. madrid.es bloquea las descargas automáticas.
+- *Cómo se cubre:* lectura humana del BOAM al empezar el día 1. Cada regla lleva artículo y fechas de vigencia. Ante la duda, la interpretación más restrictiva, anotada. Un test comprueba que cada combinación tiene exactamente una regla. La app muestra el artículo, la fecha de revisión y un aviso de información orientativa.
+
+**2. Conexión a internet durante la demo**
+- *Riesgo:* sin internet no hay geocodificación (CartoCiudad), ni mapa (teselas de OSM), ni parkings en tiempo real. La demo se cae entera.
+- *Cómo se cubre:* hotspot del móvil de reserva. Antes de presentar, se consultan las direcciones de la demo para dejarlas en caché (y no se reinicia el servidor después). Los parkings en tiempo real tienen la lista fija de respaldo.
+
+**3. La base de matrículas de la DGT**
+- *Riesgo:* sin ella no hay veredicto. Son 101 MB de descarga y 38,7 M filas, y la base no va a git. Medido en el prototipo: 14 s de descarga + 59 s de importación, 0,58 GB.
+- *Cómo se cubre:* script de importación que valida (cabecera, más de 30 M filas, solo códigos conocidos) y sustituye la base de golpe. Se ejecuta lo primero el día 1. Copia del `.db` en un USB para el portátil de la demo. Si una matrícula no aparece, el usuario elige la etiqueta a mano.
+
+**4. Geometría de las zonas**
+- *Riesgo:* un perímetro mal convertido (coordenadas UTM leídas como lat/lng) o desactualizado da veredictos falsos sin ningún error visible.
+- *Datos dudosos:* el perímetro de Distrito Centro es de 2018. En la ZBE general (`ZBE_TM`) se interpreta que `Via_Out=1` son corredores de autovías fuera de la ZBE (sin confirmar en la ordenanza).
+- *Cómo se cubre:* conversión con `ogr2ogr -t_srs EPSG:4326`; tests con puntos conocidos (Sol, Plaza Elíptica, Retiro, Getafe); comprobar el perímetro con el anexo de la ordenanza y a ojo en el mapa.
+
+**5. Entender bien la dirección**
+- *Riesgo:* «Calle Mayor 10» existe en muchos municipios. Si CartoCiudad devuelve otro, el veredicto es de otro sitio.
+- *Cómo se cubre:* filtro de municipio (o añadir «, Madrid»), comprobar `muniCode = 28079` y mostrar siempre la dirección entendida («Destino: CALLE MAYOR 10, 28013 Madrid») para que el usuario pueda verla.
+
+**6. Privacidad y seguridad**
+- *Riesgo:* matrícula + dirección + padrón revelan dónde vive alguien y a dónde va. Los nombres de parkings y las direcciones vienen de fuera (XSS).
+- *Cómo se cubre:* sección 9. No se guarda ni se registra nada; validación con Pydantic; SQLite de solo lectura; `textContent` y ventanas de Leaflet sin HTML; uvicorn en 127.0.0.1; `no-store` en `/api`; cabeceras de seguridad.
+
+**7. Las 6 horas**
+- *Riesgo:* el alcance es grande para el tiempo disponible; acabar con muchas piezas a medias.
+- *Cómo se cubre:* el orden de prioridad de la sección 12, en el que cada paso deja la app presentable. Camino crítico: reglas + importación de la DGT + geocodificación + veredicto. Motos, rutas y extras quedan fuera.
+
+**8. Estimaciones de tiempo y coste**
+- *Riesgo:* los tiempos son aproximados (línea recta × 1,3) y algunos costes no se conocen. Presentados como exactos, engañan.
+- *Cómo se cubre:* la app dice «estimado», muestra «—» cuando no hay coste y deja claro que el tiempo cuenta desde que se aparca.
+
+**9. Saber explicarlo**
+- *Riesgo:* el jurado puede preguntar por cualquier línea o decisión.
+- *Cómo se cubre:* pocas dependencias y sin magia; decisiones y motivos en este documento; `AI_USAGE.md` al día.
+
 ## 1. Intención y porqué
 
 Hackatón 2Campus1Code (DAETSISI-DAETSIINF-ORANGE): un MVP web que consuma datos abiertos oficiales y los convierta en un servicio útil para la ciudadanía, con frontend y backend, y que aporte valor más allá de mostrar datos (filtrado, recomendaciones, cruce de fuentes). Se presenta ante un jurado.
 
-El servicio: una persona escribe **a dónde va**, **la matrícula de su coche** y **dónde está empadronada**, y la app le dice con un único mensaje claro si puede llegar en coche según las Zonas de Bajas Emisiones (ZBE) de Madrid. Si no puede, le ofrece alternativas ordenadas (parkings permitidos, el punto permitido más cercano, aparcamientos disuasorios con transporte público) con tiempo y coste. Un mapa interactivo, filtrable por etiqueta ambiental, muestra por dónde puede y por dónde no puede circular, con cámaras, parkings y paradas.
+El servicio: una persona escribe **a dónde va**, **la etiqueta ambiental de su coche** (o, si quiere, su matrícula) y **dónde está empadronada**, y la app le dice con un único mensaje claro si puede llegar en coche según las Zonas de Bajas Emisiones (ZBE) de Madrid. Si no puede, le ofrece alternativas ordenadas (parkings permitidos, el punto permitido más cercano, aparcamientos disuasorios con transporte público) con tiempo y coste. Un mapa interactivo, filtrable por etiqueta ambiental, muestra por dónde puede y por dónde no puede circular, con cámaras, parkings y paradas.
 
 Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamiento de Madrid, CRTM/EMT, IGN), cita el artículo de la ordenanza en cada respuesta y no guarda datos personales.
 
 ## 2. Objetivos
 
-1. **Veredicto único** para dirección + matrícula + padrón: «✔ Puedes entrar», «⚠ Solo puedes entrar para aparcar en un parking público» o «✖ No puedes entrar».
+1. **Veredicto único** para dirección + etiqueta (o matrícula) + padrón: «✔ Puedes entrar», «⚠ Solo puedes entrar para aparcar en un parking público» o «✖ No puedes entrar».
 2. **Alternativas** cuando no puede entrar (o solo para aparcar): una sola lista ordenada por tiempo, con la más barata marcada, costes calculados para 2 h por defecto y **duración editable** en la pantalla de resultado.
 3. **Mapa filtrable por etiqueta**: zonas coloreadas según lo que puede hacer ese coche, cámaras de la ZBE, parkings (con ocupación en tiempo real cuando exista), disuasorios y paradas de transporte.
 4. **Transparencia**: cada veredicto muestra el artículo de la Ordenanza 2/2026 aplicado y la fecha de revisión de las reglas; la app muestra la fecha real de cada fuente de datos.
@@ -71,7 +114,9 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 ┌──────────────────────────────────────────┐
 │  ¿Puedo entrar con mi coche?             │
 │  ¿A dónde vas?   [ Calle Mayor 10    ]   │
-│  Matrícula       [ 1234 ABC ]            │
+│  ¿Cómo identificas tu coche?             │
+│  [ Por etiqueta ]  [ Por matrícula ]     │
+│  Etiqueta ambiental [ Elige tu etiqueta ▾]│
 │  ¿Dónde estás empadronado?               │
 │  ( ) Fuera de Madrid                     │
 │  ( ) En Madrid                           │
@@ -84,8 +129,8 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 └──────────────────────────────────────────┘
 ```
 
-- Los tres campos son obligatorios. El padrón **no** viene marcado por defecto: si se asumiera uno, quien no lo lea recibiría un resultado equivocado.
-- La matrícula se acepta con o sin espacios y guiones.
+- Obligatorios: dirección, padrón y **o la etiqueta o la matrícula, nunca las dos**. Un selector «Por etiqueta / Por matrícula» (por defecto, por etiqueta) muestra solo uno de los dos campos, para que lo que se ve coincida siempre con lo que se comprueba (decisión del equipo). Con matrícula, el resultado indica «según la DGT». El padrón **no** viene marcado por defecto: si se asumiera uno, quien no lo lea recibiría un resultado equivocado.
+- La matrícula se acepta con o sin espacios, puntos y guiones, y **se valida antes de buscarla** con las reglas españolas (sección 8.4). Si no es válida, el mensaje dice por qué (p. ej. «Las matrículas actuales no llevan vocales (A)…»).
 
 ### 7.2 Resultado
 
@@ -96,7 +141,7 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
   Costes calculados para [ 2 h ▾ ]        Tiempo desde que aparcas
   1. Parking Plaza Mayor (entrada permitida)   6 min · 7,40 €  [Cómo llegar]
   2. Punto permitido más cercano + andar      14 min · —       [Cómo llegar]
-  3. Disuasorio + Metro L10   💰 más barata    38 min · 3,00 €  [Cómo llegar]
+  3. Disuasorio + Metro L10   💰 más barata    38 min · 4,00 €  [Cómo llegar]
 
   Cerca de tu destino: Metro Sol (L1, L2, L3) · 150 m
 ```
@@ -105,8 +150,10 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 - Con «✔» no se muestran alternativas: solo el mensaje, el artículo y el destino en el mapa.
 - **Duración**: selector en el resultado, 2 h por defecto. Al cambiarlo se vuelve a llamar a la API con las nuevas horas; cambian los costes y la marca «más barata», no el orden.
 - **Tiempo de cada alternativa** = tiempo desde que el usuario deja el coche hasta su destino (andando o en transporte público). No se pide origen porque sería otro campo. **[decisión de diseño]**
-- Si la matrícula no está en el fichero de la DGT: «No encontramos tu matrícula. ¿Qué etiqueta tiene tu coche? [0] [ECO] [C] [B] [Sin etiqueta]». Al elegir, se repite la comprobación.
+- Si la matrícula tiene un formato válido pero no está en el registro de la DGT: «No encontramos esta matrícula en el registro de la DGT. Revísala o identifica tu coche «Por etiqueta»». No hay un segundo paso para elegir la etiqueta (decisión del equipo).
 - Si es moto: «Por ahora solo comprobamos coches».
+- **Vehículos históricos** (decisión del equipo, opción A): el desplegable «Por etiqueta» incluye «Vehículo histórico (pegatina H)», así que no hace falta ninguna pregunta más. Por matrícula, las `H 1234 BCD` se reconocen como históricas por su formato (no están en el fichero de distintivos). Un histórico que conserva su matrícula original aparece en la DGT como `SIN DISTINTIVO`: si la matrícula da «sin etiqueta» y el veredicto es «no puede», el resultado añade la nota «Si tu coche lleva la pegatina H de vehículo histórico, compruébalo «Por etiqueta» → Vehículo histórico».
+- La dirección entendida va en la segunda línea del resultado, justo bajo el veredicto («Tetuan» se entiende como la calle de Tetuán, junto a Sol, no como el distrito).
 - Si la dirección no se encuentra o está fuera del municipio, un mensaje que lo dice y deja corregirla.
 - El veredicto no depende solo del color: icono + texto (accesibilidad).
 - Pie de página: «Información orientativa. La norma vigente es la Ordenanza 2/2026 (enlace)». **[decisión de diseño]**
@@ -167,18 +214,18 @@ requirements.txt     versiones fijadas
 
 Petición:
 ```json
-{ "direccion": "Calle Mayor 10", "matricula": "1234ABC",
-  "padron": "fuera | madrid | centro", "horas": 2,
-  "etiqueta": "0 | ECO | C | B | A" }
+{ "direccion": "Calle Mayor 10", "padron": "fuera | madrid | centro", "horas": 2,
+  "etiqueta": "CERO | ECO | C | B | A | H", "matricula": "1234 BCD" }
 ```
-`etiqueta` solo se envía cuando la matrícula no se encontró y el usuario la eligió a mano. `horas` es opcional (2 por defecto).
+Hace falta exactamente uno de los dos, `etiqueta` o `matricula` (si faltan los dos o llegan los dos, 422). Si viene `matricula`, la etiqueta sale del registro de la DGT y `etiqueta_origen` vale `dgt`; si no, `elegida`. `horas` es opcional (2 por defecto).
 
 Respuesta (siempre 200 para los casos esperados; el campo `estado` manda):
 
 | `estado` | Significado | Qué hace el cliente |
 |---|---|---|
 | `ok` | Hay veredicto | Pinta el resultado |
-| `etiqueta_desconocida` | La matrícula no está en el fichero | Muestra el selector de etiqueta |
+| `matricula_no_valida` | La matrícula no cumple las reglas españolas; viene `motivo` con el porqué | Muestra el motivo |
+| `matricula_no_encontrada` | Formato válido, pero no está en el registro de la DGT | «Revísala, o bórrala y elige tu etiqueta» |
 | `moto` | Es una moto | «Por ahora solo comprobamos coches» |
 | `direccion_no_encontrada` | CartoCiudad no la encuentra | Pide corregirla |
 | `fuera_de_madrid` | Municipio distinto de 28079 | «Solo cubrimos el municipio de Madrid» |
@@ -194,6 +241,8 @@ Con `estado = ok`:
   "motivo": "Los vehículos con etiqueta B solo pueden entrar para aparcar en un aparcamiento público",
   "fuente": { "norma": "Ordenanza 2/2026", "articulo": "art. X", "url": "…", "revisado": "2026-11-…" },
   "destino": { "direccion": "CALLE MAYOR 10, 28013 Madrid", "lat": 40.4165, "lng": -3.7060 },
+  "etiqueta_origen": "elegida | dgt | matricula_historica",
+  "nota": "texto o null (aviso del histórico con matrícula original)",
   "horas": 2,
   "alternativas": [
     { "tipo": "parking | disuasorio | estacion | punto_permitido",
@@ -216,7 +265,11 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 ### 8.4 Módulos
 
 **vehiculo.py**
-- Normaliza: mayúsculas, sin espacios ni guiones. Valida `^[A-Z0-9]{4,10}$` (frontera de confianza; el fichero de la DGT es la fuente de verdad del formato).
+- Normaliza (mayúsculas, sin espacios, puntos ni guiones) y **valida con las reglas españolas antes de buscar** (sacadas del propio fichero: sus 38,7 M matrículas tienen 8 formatos):
+  - actual (desde 2000), `1234 BCD`, opcionalmente con prefijo `C` (ciclomotor), `R` (remolque), `E` (especial) o `H` (histórico; estas no están en el fichero de la DGT y se tratan directamente como históricas): las 3 letras solo pueden ser `BCDFGHJKLMNPRSTVWXYZ` (sin vocales, Ñ ni Q);
+  - provincial (1971-2000), `M 1234 AB`: uno de los 53 códigos de provincia + 4 cifras + 1 o 2 letras (aquí sí hay vocales; nunca Q);
+  - numérica (antes de 1971), `M 123456`: provincia + hasta 6 cifras (el fichero las guarda con 6).
+  - Ñ, símbolos u otro formato (por ejemplo, una matrícula extranjera) → motivo concreto. Se aplican reglas españolas porque el registro de la DGT solo tiene matrículas españolas; en otros países europeos sí hay vocales. Hay 3 matrículas del fichero con un formato anómalo (`M16103R`) que no pasan: se asume.
 - Consulta `SELECT etiqueta FROM v WHERE matricula = ?` sobre una conexión de solo lectura (`file:…?mode=ro`).
 - Códigos del fichero DGT (vistos en una muestra de 108.000 filas): `16T0`, `16TE`, `16TC`, `16TB`, `16M0`, `16MB`, `16MC` y `SIN DISTINTIVO`. Correspondencia: tercer carácter `0`→CERO, `E`→ECO, `C`→C, `B`→B; `SIN DISTINTIVO`→A (sin etiqueta); segundo carácter `M` → moto. La lista completa de códigos se comprueba al importar el fichero entero (sección 10).
 
@@ -239,7 +292,7 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
   ]
 }
 ```
-- Dimensiones: zona × etiqueta (CERO, ECO, C, B, A) × padrón (fuera, madrid, centro) × fecha de hoy. **No hay hora**, salvo que el BOAM tenga franjas horarias para coches (hay que comprobarlo; si las hay, se añade `horas` a la regla y se usa la hora actual).
+- Dimensiones: zona × etiqueta (CERO, ECO, C, B, A, H = histórico) × padrón (fuera, madrid, centro) × fecha de hoy. **No hay hora**, salvo que el BOAM tenga franjas horarias para coches (hay que comprobarlo; si las hay, se añade `horas` a la regla y se usa la hora actual).
 - Para cada combinación aplicable a hoy debe haber exactamente una regla (lo garantiza un test).
 - El contenido sale de leer el BOAM (sección 10). La tabla de la prensa es solo una pista, no la fuente: los coches sin etiqueta empadronados en Madrid podrían circular por la ZBE general hasta el 31/12/2026, pero no por las ZBEDEP; en Distrito Centro, B y C solo para aparcar en un aparcamiento; los vecinos de Distrito Centro tienen acceso; hay fuentes contradictorias sobre B y C en Plaza Elíptica.
 
@@ -248,10 +301,10 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 - **Tiempo** (*shortcut: sin motor de rutas; distancia en línea recta × 1,3. Mejorar con un servicio de rutas si da tiempo*):
   - andando: 4,5 km/h, si la distancia es ≤ 1,5 km;
   - si no, transporte público: 25 km/h + 5 min de espera + 5 min andando hasta la estación y desde ella.
-- **Coste**: parkings, tarifa del servicio en tiempo real × horas (si no hay tarifa, `null`). Transporte, billete sencillo × 2 (ida y vuelta), con el precio fijado en el código citando la tarifa del CRTM y su fecha. Aparcar en la calle, `null` (la zona SER no se calcula).
+- **Coste**: parkings, tarifa del servicio en tiempo real × horas (si no hay tarifa, `null`). Metro y autobús: **2,00 € por trayecto × 2 (ida y vuelta) = 4,00 €**. Es el billete sencillo de Metro zona A para 10 estaciones o más, la tarifa más alta; el de EMT cuesta 1,50 € y uno de Metro de hasta 5 estaciones, 1,50 €. Se usa la más alta para no prometer menos de lo que se paga. Cercanías: `null` (*shortcut: el precio depende de cuántas zonas se crucen, de 1,70 € a 5,50 €; calcularlo si los datos del CRTM traen la zona de cada estación*). No se usa el billete de 10 viajes (7,30 €, con descuento temporal hasta el 31 de diciembre) porque no todo el mundo lo tiene. Fuente: tarifas del CRTM, enlazadas desde [comunidad.madrid/transporte/tarifas](https://www.comunidad.madrid/transporte/tarifas) (consultado el 19/11/2026; los billetes sencillos no tienen descuento temporal). Los precios van en una constante con la fuente y la fecha en un comentario. Aparcar en la calle, `null` (la zona SER no se calcula).
 - Orden por minutos; máximo 5 alternativas; `mas_barata` en la de menor coste conocido.
 
-**externos.py**
+**externos.py** (llamadas a servicios externos: el código del servidor que pide datos a servicios de terceros)
 - **CartoCiudad** `https://www.cartociudad.es/geocoder/api/geocoder/find?q=…` (medido: ~1,3 s; devuelve `lat`, `lng`, `muniCode`, `type`, `postalCode`). Fuera de Madrid si `muniCode != "28079"`. Para evitar coincidencias en otros municipios, se usa el filtro de municipio de la API si existe; si no, se añade «, Madrid» a la consulta. Caché `lru_cache(maxsize=1024)` sobre la dirección normalizada.
 - **Parkings en tiempo real**: SOAP `https://servayto.madrid.es/MTPAR_WSINFO/InfoParking?wsdl` (comprobado que responde; incluye ocupación, tarifas y coordenadas). Se construye la petición con `httpx` y se lee con `xml.etree` de la librería estándar. Caché de 5 min; si falla, lista fija.
 - Todas las URL externas son fijas en el código y el texto del usuario solo va como parámetro codificado. Tiempo límite: 5 s.
@@ -262,20 +315,21 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
   ```sql
   CREATE TABLE v (matricula TEXT PRIMARY KEY, etiqueta INTEGER) WITHOUT ROWID;
   ```
-  (medido en una muestra: 14 B/fila → ~0,5 GB para ~38 M filas; búsqueda ~7 µs). Valida antes de sustituir: más de 30 M filas y ningún código desconocido. Entonces renombra la base temporal a `matriculas.db` de golpe. Si algo falla, la base anterior queda intacta. Durante la carga, `journal_mode=OFF` y `synchronous=OFF`. Tiempo de importación aún sin medir.
+  (medido con el fichero completo del 18/11/2026: 38.729.647 filas, 59 s de importación, 0,58 GB; búsqueda ~7 µs). Códigos que aparecen: `16T0`, `16TE`, `16TC`, `16TB`, `16M0`, `16MC`, `16MB`, `SIN DISTINTIVO`. Valida antes de sustituir: más de 30 M filas y ningún código desconocido. Entonces renombra la base temporal a `matriculas.db` de golpe. Si algo falla, la base anterior queda intacta. Durante la carga, `journal_mode=OFF` y `synchronous=OFF`. Tiempo de importación aún sin medir.
 - `python -m ingest.madrid` y `python -m ingest.transporte`: descargan perímetros, cámaras, parkings y paradas y generan `data/geo/*.geojson` en WGS84. Los SHP vienen probablemente en ETRS89 UTM 30N: se convierten una vez con `ogr2ogr -t_srs EPSG:4326` (comando documentado en el README) y el GeoJSON resultante se sube a git. **[decisión de diseño]**: sin dependencias Python de GIS. (Motivo: Leaflet, en el navegador, y Shapely, en el servidor, leen GeoJSON en lat/lng, no SHP.)
 - Cada script anota en `data/fuentes.json` la URL, la fecha real del fichero (`Last-Modified`) y la fecha de descarga. Ese fichero alimenta el README y el pie de la app.
+- datos.madrid.es puede cortar las conexiones automáticas (el 19/11/2026 lo hizo tras varias descargas). Si un script falla por eso, el fichero se descarga a mano desde el navegador a `data/raw/` y el script lo procesa desde ahí.
 - El JSON de parkings municipales tiene un error de sintaxis (`"longitude": --3.65…`): se usa el CSV o el GeoJSON de ese mismo dataset.
 
 ## 9. Seguridad y privacidad
 
 ### 9.1 Aplicación
-1. **Validación en la frontera** con modelos Pydantic: matrícula normalizada + `^[A-Z0-9]{4,10}$`; dirección de 1 a 200 caracteres; `padron` y `etiqueta` como enumerados; `horas` entre 1 y 24.
+1. **Validación en la frontera** con modelos Pydantic: matrícula opcional de hasta 20 caracteres, normalizada y validada con las reglas españolas; exactamente una de etiqueta o matrícula; dirección de 1 a 200 caracteres; `padron` y `etiqueta` como enumerados; `horas` entre 1 y 24.
 2. **SQLite en solo lectura** y consultas parametrizadas.
 3. **XSS**: todo texto externo o del usuario se inserta con `textContent`. Las ventanas de Leaflet se construyen con nodos del DOM (`bindPopup` interpreta HTML y los nombres de parkings vienen de fuera).
 4. **Peticiones a terceros controladas**: hosts fijos, parámetros codificados, tiempo límite de 5 s. El servidor nunca pide una URL que venga del usuario.
 5. **Privacidad (RGPD)**: matrícula + dirección + padrón no se guardan ni se registran. El log de acceso de uvicorn no incluye cuerpos de petición; no hay parámetros personales en las URL (la comprobación es POST).
-6. **Mismo origen**: sin CORS. Cabeceras: `Content-Security-Policy` (`default-src 'self'`; `img-src 'self' https://tile.openstreetmap.org data:`), `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`. Leaflet servido desde `static/vendor/`, sin CDN.
+6. **Mismo origen**: sin CORS. Cabeceras: `Content-Security-Policy` (`default-src 'self'`; `img-src 'self' https://tile.openstreetmap.org data:`), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin` (no `no-referrer`: la política de uso de las teselas de OSM exige la cabecera Referer; así solo se envía el origen, nunca la ruta). Leaflet servido desde `static/vendor/`, sin CDN.
 7. **Errores genéricos** hacia el cliente; FastAPI sin modo depuración.
 8. **Cachés acotadas** (tamaño máximo y caducidad): no se pueden usar para agotar la memoria.
 9. **Dependencias**: pocas y con versión fijada (`fastapi`, `uvicorn`, `shapely`, `httpx`); `pip-audit` antes de la demo. No hacen falta claves de API.
@@ -293,15 +347,15 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 
 | Fuente | Uso | Formato / URL | Fecha real |
 |---|---|---|---|
-| DGT · distintivos ambientales | matrícula → etiqueta | ZIP · `https://www.dgt.es/microdatos/salida/distintivoAmbiental/export_dist_ambiental.zip` | 13/11/2026 (diario). El catálogo de datos.gob.es dice 2024: no fiarse del catálogo. |
+| DGT · distintivos ambientales | matrícula → etiqueta | ZIP · `https://www.dgt.es/microdatos/salida/distintivoAmbiental/export_dist_ambiental.zip` | 18/11/2026 (diario). El catálogo de datos.gob.es dice 2024: no fiarse del catálogo. |
 | datos.madrid.es · ZBEDEP Distrito Centro (dataset 300229) | perímetro y cámaras de Centro | GeoJSON/CSV de cámaras; ZIP con SHP del perímetro | Cámaras: 18/06/2026. **Perímetro: SHP de 2018** («Madrid_Central»): comprobar con el anexo de la ordenanza. |
-| datos.madrid.es · ZBE Madrid, cámaras | cámaras de la ZBE general | CSV/XLSX/SHP · datos.gob.es `l01280796-trafico-madrid-zona-de-bajas-emisiones-camaras1` | 04/06/2026 |
-| datos.madrid.es · ZBEDEP Plaza Elíptica | perímetro | SHP · datos.gob.es `l01280796-zona-de-bajas-emisiones-de-especial-proteccion-zbedep-plaza-eliptica1` | URL de descarga por confirmar |
-| Límite de la ZBE general | perímetro | Por localizar (límite municipal o polígono propio de la ZBE) | Comprobar en la ordenanza si la ZBE general es todo el término municipal |
+| datos.madrid.es · ZBE Madrid, cámaras (300654) | cámaras **y perímetro** de la ZBE general | ZIP con SHP: `ZBE_MADRID_CAMARAS` (463 cámaras), `ZBE_TM` (47 polígonos; su unión mide 604 km², el término municipal; `Via_Out=1` parecen corredores de autovías excluidos), `ZBE_MADRID_FOTO_ROJOS` | Ficheros del 29/12/2025 |
+| datos.madrid.es · ZBEDEP Plaza Elíptica | perímetro | ZIP con SHP · `https://geoportal.madrid.es/fsdescargas/IDEAM_WBGEOPORTAL/MOVILIDAD/ZBEDEP/ZBEDEP_Plaza_Eliptica.zip`: límite, 25 puntos de control, viarios con restricciones y **5 barrios con acceso para residentes** (Zofío, Abrantes, Moscardó, Opañel, Comillas) | Ficheros de 2021 (ZIP de 2025) |
 | datos.madrid.es · aparcamientos públicos municipales (202625) | parkings y disuasorios | CSV/GeoJSON (el JSON está mal formado) | 13/11/2026 · 63 aparcamientos (39 mixtos, 19 públicos, 5 disuasorios) con coordenadas; sin tarifas |
-| Ayto. Madrid · parkings en tiempo real (50027) | ocupación y tarifas | SOAP · `https://servayto.madrid.es/MTPAR_WSINFO/InfoParking?wsdl` | En directo; responde (19/11/2026) |
+| Ayto. Madrid · parkings en tiempo real (50027) | ocupación y tarifas | SOAP · `https://servayto.madrid.es/MTPAR_WSINFO/InfoParking?wsdl` | En directo. Respondió por la mañana del 19/11/2026; por la tarde cortaba la conexión desde el mismo equipo (igual que datos.madrid.es): la lista fija de respaldo es imprescindible |
 | EMT · GTFS (datos.madrid.es) | paradas de autobús | GTFS (`stops.txt`) | Comprobar al descargar |
-| CRTM · datos.crtm.es | estaciones de metro y cercanías; precio del billete | Descargas del portal; licencia: citar al CRTM | Comprobar al descargar |
+| CRTM · datos.crtm.es | estaciones de metro y cercanías | Descargas del portal; licencia: citar al CRTM | Comprobar al descargar |
+| CRTM · tarifas ([comunidad.madrid/transporte/tarifas](https://www.comunidad.madrid/transporte/tarifas)) | precio del billete | [Metro](https://crtm.es/billetes-y-tarifas/billetes-y-abonos/metro/?idPestana=3) · [EMT](https://www.crtm.es/billetes-y-tarifas_old/billetes-y-abonos/autobuses-urbanos-de-madrid-emt/?idPestana=3&lang=) · [Cercanías](https://crtm.es/billetes-y-tarifas_old/billetes-y-abonos/cercanias-ferroviarias/?idPestana=3&lang=) | Consultado el 19/11/2026: Metro zona A 1,50–2,00 €, EMT 1,50 €, 10 viajes 7,30 € (descuento temporal), Cercanías 1,70–5,50 € según zonas |
 | IGN · CartoCiudad | geocodificación | API REST, sin clave | En directo |
 | Ordenanza 2/2026, de 24 de marzo | reglas | BOAM nº 10.103 (10/04/2026); corrección en BOCM nº 107 (07/05/2026): `https://www.bocm.es/boletin/CM_Orden_BOCM/2026/05/07/BOCM-20260507-49.PDF` | Entrada en vigor por confirmar en el texto (la prensa dice 07/04/2026; el BOAM es del 10/04/2026) |
 | OpenStreetMap | teselas del mapa | `tile.openstreetmap.org` con atribución | — |
@@ -327,9 +381,9 @@ Cada paso deja la app presentable por sí solo.
 ## 13. Lo que queda para quien construya
 
 - **Leer el BOAM nº 10.103** (y la corrección del BOCM) y escribir `reglas.json`: todas las combinaciones, artículo por regla, fechas de vigencia, franjas horarias de coches si las hubiera, y la interpretación más restrictiva ante la duda (anotándola).
-- Confirmar el perímetro de Distrito Centro con el anexo, localizar el SHP de Plaza Elíptica y el polígono de la ZBE general.
+- Confirmar el perímetro de Distrito Centro con el anexo y el significado de `Via_Out` en `ZBE_TM`.
+- Decidir cómo cubrir a los residentes de los 5 barrios de Plaza Elíptica (hoy la pregunta del padrón no los distingue).
 - Explorar las operaciones del SOAP de parkings y el formato de las tarifas.
-- Fijar el precio del billete con la tarifa vigente del CRTM y citarla.
 - Comprobar el filtro de municipio de CartoCiudad.
-- Medir el tiempo de importación del fichero completo de la DGT.
+- Confirmar en el BOAM el régimen de los históricos: exentos en la ZBE general (art. 21.3 OMS según la [página de Madrid ZBE](https://madrid.es/go/KilV)), en Plaza Elíptica (lo menciona la corrección del BOCM) y en Distrito Centro (hoy «no puede» por precaución), y si hay límite de días al año (la prensa de 2024-2025 habla de 96). Reglamento de referencia: Real Decreto 892/2024.
 - Actualizar `AI_USAGE.md` y añadir al README los enlaces a las fuentes.

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Puedo entrar con mi coche? · ZBE Madrid</title>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p class="aviso">Prototipo de prueba · reglas provisionales, sin verificar todavía en el BOAM</p>
+  <main>
+    <section class="panel">
+      <h1>¿Puedo entrar con mi coche?</h1>
+      <form id="formulario">
+        <label for="direccion">¿A dónde vas?</label>
+        <input id="direccion" name="direccion" required maxlength="200" placeholder="Calle Mayor 10" autocomplete="street-address">
+
+        <fieldset>
+          <legend>¿Cómo identificas tu coche?</legend>
+          <div class="segmentado">
+            <label><input type="radio" name="modo" value="etiqueta" checked> Por etiqueta</label>
+            <label><input type="radio" name="modo" value="matricula"> Por matrícula</label>
+          </div>
+        </fieldset>
+
+        <!-- Solo un campo activo cada vez: el oculto queda deshabilitado y no se envía. -->
+        <div id="por-etiqueta">
+          <label for="etiqueta">Etiqueta ambiental</label>
+          <select id="etiqueta" name="etiqueta" required>
+            <option value="">Elige tu etiqueta</option>
+            <option value="CERO">0 emisiones (azul)</option>
+            <option value="ECO">ECO (verde y azul)</option>
+            <option value="C">C (verde)</option>
+            <option value="B">B (amarilla)</option>
+            <option value="A">Sin etiqueta</option>
+            <option value="H">Vehículo histórico (pegatina H)</option>
+          </select>
+        </div>
+        <div id="por-matricula" hidden>
+          <label for="matricula">Matrícula</label>
+          <input id="matricula" name="matricula" maxlength="20" placeholder="1234 BCD" autocapitalize="characters" autocomplete="off" required disabled aria-describedby="ayuda-matricula">
+          <p id="ayuda-matricula" class="ayuda">Buscamos su etiqueta en el registro de la DGT.</p>
+        </div>
+
+        <fieldset>
+          <legend>¿Dónde estás empadronado?</legend>
+          <label><input type="radio" name="padron" value="fuera" required> Fuera de Madrid</label>
+          <label><input type="radio" name="padron" value="madrid"> En Madrid</label>
+          <label><input type="radio" name="padron" value="centro"> En Distrito Centro</label>
+        </fieldset>
+
+        <button type="submit" class="principal">Comprobar</button>
+      </form>
+      <div id="resultado" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="mapa">
+      <div class="filtro" role="group" aria-label="Ver el mapa para la etiqueta">
+        <span>Ver el mapa para:</span>
+        <button type="button" data-etiqueta="CERO" aria-pressed="false">0</button>
+        <button type="button" data-etiqueta="ECO" aria-pressed="false">ECO</button>
+        <button type="button" data-etiqueta="C" aria-pressed="false">C</button>
+        <button type="button" data-etiqueta="B" aria-pressed="false">B</button>
+        <button type="button" data-etiqueta="A" aria-pressed="false">Sin etiqueta</button>
+        <button type="button" data-etiqueta="H" aria-pressed="false">Histórico</button>
+      </div>
+      <div id="mapa"></div>
+      <p class="leyenda">
+        <span class="muestra puede"></span> Puedes circular
+        <span class="muestra solo_parking"></span> Solo para aparcar
+        <span class="muestra no_puede"></span> No puedes
+        <span class="muestra camara"></span> Cámara
+      </p>
+    </section>
+  </main>
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
