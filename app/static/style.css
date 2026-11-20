@@ -52,15 +52,6 @@ body {
   background: var(--panel);
 }
 
-.aviso {
-  margin: 0;
-  padding: .35rem var(--margen);
-  background: var(--amarillo);
-  color: #24272b;
-  font-size: var(--t-s);
-  font-weight: 600;
-}
-
 /* ---------- Cabecera y pestañas ---------- */
 .cabecera { padding: 1.75rem var(--margen) 0; border-bottom: 1px solid var(--linea); }
 .contenedor, .columna { max-width: var(--columna); margin-inline: auto; }
