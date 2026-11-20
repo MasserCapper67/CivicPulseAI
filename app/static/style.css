@@ -178,7 +178,7 @@ input:not([type])::placeholder { color: var(--gris); opacity: .7; }
 .padron label { display: flex; align-items: center; gap: .55rem; padding: .2rem 0; font-weight: 400; cursor: pointer; }
 .padron input { width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--azul); }
 
-.principal, .ver-mapa {
+.principal, .ver-mapa, .ver-ruta {
   font: 600 var(--t-m)/1.2 "Barlow Condensed", sans-serif;
   letter-spacing: .01em;
   border-radius: 6px;
@@ -233,13 +233,40 @@ input:not([type])::placeholder { color: var(--gris); opacity: .7; }
 .datos dt { color: var(--gris); }
 .datos dd { margin: 0; }
 .nota { margin: 1rem 0 0; padding: .6rem .8rem; border-left: 4px solid var(--azul); background: var(--hormigon); }
+.acciones { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem; }
 .ver-mapa {
-  margin-top: 1.25rem;
   padding: .55rem 1.1rem;
   color: var(--asfalto);
   background: none;
   border: 1.5px solid var(--asfalto);
 }
+/* «Cómo llegar» al destino: la acción principal cuando se puede entrar. */
+.ver-ruta {
+  display: inline-flex; align-items: center;
+  padding: .55rem 1.1rem;
+  color: var(--sobre-azul);
+  background: var(--azul);
+  border: 1.5px solid var(--azul);
+  text-decoration: none;
+}
+
+/* Alternativas: una lista ordenada por tiempo, con el coste a la derecha. */
+.alternativas h2 { margin: 2rem 0 .5rem; font: 700 var(--t-m)/1.2 "Barlow Condensed", sans-serif; }
+.alternativas .horas { display: flex; align-items: center; gap: .5rem; font-weight: 400; }
+.alternativas .horas select { width: auto; padding: .35rem .5rem; }
+.alternativas ol { margin: .75rem 0 0; padding: 0; list-style: none; }
+.alternativa { display: grid; grid-template-columns: 1fr auto; gap: .25rem 1rem; padding: .85rem 0; border-top: 1px solid var(--linea); }
+.alt-nombre { margin: 0; font-weight: 600; }
+.alt-detalle { margin: .15rem 0 0; font-size: var(--t-s); color: var(--gris); }
+.alt-precio { text-align: right; }
+.alt-coste { margin: 0; font: 700 var(--t-m)/1.2 "Barlow Condensed", sans-serif; white-space: nowrap; }
+.alt-ruta { display: inline-block; margin-top: .2rem; font-weight: 600; color: var(--azul); }
+.insignia {
+  display: inline-block; margin-left: .25rem; padding: .05rem .5rem;
+  font-size: .75rem; font-weight: 600; vertical-align: middle;
+  color: var(--sobre-azul); background: var(--azul); border-radius: 999px;
+}
+.paradas { margin: 1.25rem 0 0; }
 .ver-mapa:hover { background: var(--hormigon); }
 .mensaje { margin: 0; font-weight: 600; }
 .mensaje.error { padding-left: .8rem; border-left: 4px solid var(--rojo); }
@@ -271,6 +298,7 @@ input:not([type])::placeholder { color: var(--gris); opacity: .7; }
 .muestra.puede { border-color: var(--azul-senal); background: color-mix(in srgb, var(--azul-senal) 18%, transparent); }
 .muestra.solo_parking { border-color: var(--amarillo-trazo); border-style: dashed; background: color-mix(in srgb, var(--amarillo) 22%, transparent); }
 .muestra.no_puede { border-color: var(--rojo); background: color-mix(in srgb, var(--rojo) 16%, transparent); }
+.muestra.parking { width: .9rem; height: .9rem; border: 2px solid #fff; border-radius: 2px; background: var(--azul-senal); box-shadow: 0 0 0 1px rgba(36, 39, 43, .5); }
 .muestra.camara { width: .9rem; height: .9rem; border: 2px solid #fff; border-radius: 50%; background: var(--camara); box-shadow: 0 0 0 1px rgba(36, 39, 43, .5); }
 
 /* Cámaras: violeta con borde blanco; el tamaño lo decide app.js según el zoom. */
@@ -281,6 +309,17 @@ input:not([type])::placeholder { color: var(--gris); opacity: .7; }
   box-shadow: 0 0 0 1px rgba(36, 39, 43, .55), 0 1px 3px rgba(36, 39, 43, .35);
 }
 .camara.con-icono { background: var(--camara) url("img/camara.svg") center / 64% no-repeat; }
+
+/* Parkings: cuadrado azul con «P» blanca, como la señal S-17. */
+.parking {
+  background: var(--azul-senal);
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(36, 39, 43, .55), 0 1px 3px rgba(36, 39, 43, .35);
+}
+.parking.con-icono { display: grid; place-items: center; }
+.parking.con-icono::after { content: "P"; color: #fff; font: 700 13px/1 "Barlow Condensed", sans-serif; }
+.parking.tam-26::after { font-size: 19px; }
 
 @media (max-width: 700px) {
   :root { --margen: 1.25rem; }
