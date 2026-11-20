@@ -5,7 +5,7 @@ import math
 import shapely
 from shapely.ops import nearest_points
 
-from app.geo import RAIZ, ZONAS, a_grados, a_metros, distancia_m, zonas_en
+from app.geo import RAIZ, TERMINO, ZONAS, a_grados, a_metros, distancia_m, zonas_en
 from app.reglas import regla, veredicto
 
 # shortcut: sin motor de rutas; distancia en línea recta × rodeo. Mejorar con un servicio de rutas si da tiempo.
@@ -16,7 +16,7 @@ TRANSPORTE_KMH = 25
 ESPERA_Y_ANDAR_MIN = 10    # 5 de espera + 5 andando hasta y desde la estación
 BILLETE_ZONA_A = 2.00      # Metro zona A, sencillo de 10 o más estaciones (CRTM, consultado el 19/11/2026)
 BILLETE_COMBINADO = 3.00   # billete combinado Metro, fuera de la zona A (CRTM, consultado el 19/11/2026)
-DESPLAZAMIENTO_M = 30      # el punto permitido se aparta del borde de la zona
+DESPLAZAMIENTOS_M = (30, 100, 300)  # el punto permitido se aparta del borde; más si cae en un entrante
 RADIO_PARADAS_M = 600
 MAX_PARADAS = 3
 MAX_POR_TIPO = 2
@@ -52,19 +52,20 @@ def minutos_hasta(lng, lat, destino_lng, destino_lat):
 
 
 def punto_permitido(lng, lat, zona):
-    """El punto fuera de la zona más cercano al destino. Solo cuenta el borde exterior: los huecos de la ZBE
-    general son autovías donde no se puede dejar el coche."""
-    zona_m = a_metros(ZONAS[zona][1])
+    """El punto fuera de la zona más cercano al destino. La ZBE general son 45 trozos separados por corredores
+    de autovía (donde no se deja el coche): para ella cuenta el borde del término municipal."""
+    zona_m = a_metros(TERMINO if zona == "zbe_madrid" else ZONAS[zona][1])
     exterior = shapely.union_all([shapely.Polygon(p.exterior) for p in shapely.get_parts(zona_m)])
     destino = a_metros(shapely.Point(lng, lat))
     borde = nearest_points(exterior.boundary, destino)[0]
     dx, dy = borde.x - destino.x, borde.y - destino.y
     d = math.hypot(dx, dy) or 1.0
-    fuera = shapely.Point(borde.x + dx / d * DESPLAZAMIENTO_M, borde.y + dy / d * DESPLAZAMIENTO_M)
-    if exterior.contains(fuera):
-        return None
-    p = a_grados(fuera)
-    return p.x, p.y
+    for metros in DESPLAZAMIENTOS_M:
+        fuera = shapely.Point(borde.x + dx / d * metros, borde.y + dy / d * metros)
+        if not exterior.contains(fuera):
+            p = a_grados(fuera)
+            return p.x, p.y
+    return None
 
 
 def paradas_cercanas(lng, lat):

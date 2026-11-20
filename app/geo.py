@@ -17,6 +17,10 @@ for feature in ZONAS_GEOJSON["features"]:
     ZONAS[feature["properties"]["id"]] = (feature["properties"]["nombre"], geometria)
 
 
+# Término municipal de Madrid (la ZBE general con sus corredores de autovía): su borde exterior es el límite real.
+TERMINO = shapely.geometry.shape(json.loads((RAIZ / "data" / "termino_municipal.geojson").read_text(encoding="utf-8"))["geometry"])
+
+
 def zonas_en(lng, lat):
     punto = shapely.Point(lng, lat)
     return [zona for zona, (_, geometria) in ZONAS.items() if geometria.contains(punto)]

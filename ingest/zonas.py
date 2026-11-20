@@ -52,6 +52,9 @@ def main():
     zbe_tm = leer("/vsizip/" + os.path.join(RAW, "zbe_camaras.zip") + "/ZBE_TM.shp")
     # Via_Out=1 son los corredores de autovías que quedan fuera de la ZBE (interpretación: confirmar en la ordenanza).
     zbe = shapely.union_all([forma(f) for f in zbe_tm if f["properties"]["Via_Out"] == 0])
+    # Con los corredores incluidos, las 47 piezas forman el término municipal (604 km²): hace falta su borde
+    # exterior para el «punto permitido», porque la ZBE sola son 45 trozos separados por autovías.
+    termino = shapely.union_all([forma(f) for f in zbe_tm])
     centro = shapely.Polygon(forma(leer("/vsizip/" + os.path.join(RAW, "centro_perimetro.zip") + "/Madrid_Central.shp")[0]).coords)
     eliptica = shapely.union_all([forma(f) for f in leer(ELIPTICA + "Limite.shp")])
 
@@ -66,12 +69,17 @@ def main():
     assert zbe.contains(eliptica_pl) and eliptica.contains(eliptica_pl) and not centro.contains(eliptica_pl)
     assert zbe.contains(retiro) and not centro.contains(retiro) and not eliptica.contains(retiro)
     assert not zbe.contains(getafe)
+    assert termino.geom_type == "Polygon" and termino.contains(sol) and not termino.contains(getafe)
 
     with open(RAIZ / "data" / "zonas.geojson", "w", encoding="utf-8") as f:
         json.dump({"type": "FeatureCollection", "features": [
             {"type": "Feature", "geometry": shapely.geometry.mapping(g.simplify(SIMPLIFICAR)),
              "properties": {"id": zona, "nombre": nombre, "fuente": fuente}}
             for zona, nombre, g, fuente in zonas]}, f, ensure_ascii=False)
+
+    with open(RAIZ / "data" / "termino_municipal.geojson", "w", encoding="utf-8") as f:
+        json.dump({"type": "Feature", "geometry": shapely.geometry.mapping(termino.simplify(SIMPLIFICAR)),
+                   "properties": {"fuente": "datos.madrid.es 300654 · unión de todas las piezas de ZBE_TM"}}, f, ensure_ascii=False)
 
     camaras = (
         [("ZBE Madrid", f["properties"]["LUGAR_INFR"], f) for f in leer("/vsizip/" + os.path.join(RAW, "zbe_camaras.zip") + "/ZBE_MADRID_CAMARAS.shp")]

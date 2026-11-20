@@ -1,7 +1,8 @@
 import pytest
+import shapely
 
 from app import ranking
-from app.geo import METROS_POR_GRADO, distancia_m, zonas_en
+from app.geo import METROS_POR_GRADO, TERMINO, distancia_m, zonas_en
 from app.ranking import alternativas, coste_parking, enlace_maps, minutos_hasta, paradas_cercanas, punto_permitido
 from app.reglas import veredicto
 from tests.datos import DESTINO_SOL, HOY, SOL, TARIFAS_RECUERDO
@@ -79,3 +80,16 @@ def test_costes_de_parkings_reales_son_creibles():  # 2 h en un parking de Madri
     for p in ranking.APARCAMIENTOS:
         coste = coste_parking(p["tarifas"], 120)
         assert coste is None or 0 <= coste <= 20, (p["nombre"], coste)
+
+
+@pytest.mark.parametrize("destino", [SOL, (-3.6844, 40.4153), (-3.6680, 40.4500)])  # Sol, Retiro, Prosperidad
+def test_punto_permitido_sin_etiqueta_sale_del_termino_municipal(destino):
+    # La ZBE general son 45 trozos separados por corredores de autovía: el punto no puede caer en un corredor
+    assert not TERMINO.contains(shapely.Point(punto_permitido(*destino, "zbe_madrid")))
+
+
+@pytest.mark.parametrize("destino", [(-3.70159, 40.50715), (-3.64035, 40.34243), (-3.73609, 40.49768)])
+def test_punto_permitido_existe_aunque_el_borde_haga_entrantes(destino):
+    # Apartarse 30 m del borde podía volver a caer dentro del término (entrantes del límite) y el punto desaparecía
+    p = punto_permitido(*destino, "zbe_madrid")
+    assert p is not None and not TERMINO.contains(shapely.Point(p))
