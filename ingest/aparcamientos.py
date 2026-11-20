@@ -18,6 +18,7 @@ from ingest import registrar_fuente
 SALIDA = RAIZ / "data" / "aparcamientos.json"
 PAUSA = 0.5  # s entre peticiones: los servidores del Ayuntamiento cortan las ráfagas
 MIN_PARKINGS = 50
+MAX_PRECIO_MINUTO = 0.20  # €/min; en Madrid rondan 0,03-0,07: más es un dato mal etiquetado por el servicio
 
 
 def _sin_tildes(texto):
@@ -34,7 +35,23 @@ def leer_tarifas(xml):
             continue
         tarifas.append({"desde": int(t.findtext(N + "minutesStayInitation")), "hasta": int(t.findtext(N + "minutesStayEnd")),
                         "periodo": periodo, "precio": float(t.findtext(N + "rate"))})
-    return sorted(tarifas, key=lambda t: t["desde"])
+    return normalizar_tarifas(sorted(tarifas, key=lambda t: t["desde"]))
+
+
+def normalizar_tarifas(tarifas):
+    """El servicio publica a veces como «Minutos» precios que no lo son: el máximo diario (tramo hasta 1440)
+    se reclasifica; cualquier otro precio imposible invalida las tarifas del parking (precio «no disponible»)."""
+    limpias = []
+    for t in tarifas:
+        if t["periodo"] == "minutos" and t["precio"] > MAX_PRECIO_MINUTO:
+            if t["hasta"] != 1440:
+                return []
+            t = {**t, "periodo": "maximo"}
+        limpias.append(t)
+    maximo = next((t for t in limpias if t["periodo"] == "maximo"), None)
+    if maximo and maximo["desde"] == 0 and any(t["periodo"] == "minutos" for t in limpias):
+        return []  # un máximo «desde el minuto 0» junto a precios por minuto es contradictorio
+    return limpias
 
 
 def pedir_detalle(id_parking, familia):

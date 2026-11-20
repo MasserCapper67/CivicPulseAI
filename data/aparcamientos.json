@@ -566,14 +566,7 @@
   "direccion": "C/ Relatores, 11",
   "lat": 40.41303,
   "lng": -3.703171,
-  "tarifas": [
-   {
-    "desde": 1,
-    "hasta": 60,
-    "periodo": "minutos",
-    "precio": 3.0
-   }
-  ]
+  "tarifas": []
  },
  {
   "id": 71,
@@ -636,7 +629,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 31.85
    }
   ]
@@ -669,7 +662,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 31.25
    }
   ]
@@ -702,7 +695,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 31.25
    }
   ]
@@ -713,32 +706,7 @@
   "direccion": "CALLE AMPARO",
   "lat": 40.407933,
   "lng": -3.701445,
-  "tarifas": [
-   {
-    "desde": 0,
-    "hasta": 60,
-    "periodo": "minutos",
-    "precio": 0.053
-   },
-   {
-    "desde": 0,
-    "hasta": 1440,
-    "periodo": "minutos",
-    "precio": 0.032
-   },
-   {
-    "desde": 61,
-    "hasta": 420,
-    "periodo": "minutos",
-    "precio": 29.4
-   },
-   {
-    "desde": 421,
-    "hasta": 1440,
-    "periodo": "minutos",
-    "precio": 0.043
-   }
-  ]
+  "tarifas": []
  },
  {
   "id": 76,
@@ -768,7 +736,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 31.85
    }
   ]
@@ -801,7 +769,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 31.85
    }
   ]
@@ -834,7 +802,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 32.5189
    }
   ]
@@ -875,7 +843,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 31.85
    }
   ]
@@ -908,7 +876,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 32.5189
    }
   ]
@@ -941,7 +909,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 31.95
    }
   ]
@@ -982,7 +950,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 32.5
    }
   ]
@@ -1048,7 +1016,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 32.5
    }
   ]
@@ -1081,7 +1049,7 @@
    {
     "desde": 601,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 27.0
    }
   ]
@@ -1114,7 +1082,7 @@
    {
     "desde": 601,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 29.0
    }
   ]
@@ -1141,14 +1109,7 @@
   "direccion": "Calle Preciados",
   "lat": 40.4182355,
   "lng": -3.7048936,
-  "tarifas": [
-   {
-    "desde": 1,
-    "hasta": 721,
-    "periodo": "minutos",
-    "precio": 66.0
-   }
-  ]
+  "tarifas": []
  },
  {
   "id": 93,
@@ -1166,7 +1127,7 @@
    {
     "desde": 451,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 24.75
    }
   ]
@@ -1214,7 +1175,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 32.6
    }
   ]
@@ -1265,7 +1226,7 @@
    {
     "desde": 482,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 27.0
    }
   ]
@@ -1276,32 +1237,7 @@
   "direccion": "Pl. Olavide",
   "lat": 40.431717,
   "lng": -3.700565,
-  "tarifas": [
-   {
-    "desde": 0,
-    "hasta": 1440,
-    "periodo": "minutos",
-    "precio": 32.0
-   },
-   {
-    "desde": 0,
-    "hasta": 30,
-    "periodo": "minutos",
-    "precio": 0.0
-   },
-   {
-    "desde": 31,
-    "hasta": 90,
-    "periodo": "minutos",
-    "precio": 0.0
-   },
-   {
-    "desde": 91,
-    "hasta": 660,
-    "periodo": "minutos",
-    "precio": 0.0
-   }
-  ]
+  "tarifas": []
  },
  {
   "id": 100,
@@ -1339,7 +1275,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 33.65
    }
   ]
@@ -1380,7 +1316,7 @@
    {
     "desde": 661,
     "hasta": 1440,
-    "periodo": "minutos",
+    "periodo": "maximo",
     "precio": 10.0
    }
   ]
