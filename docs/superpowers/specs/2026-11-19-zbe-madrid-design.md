@@ -2,7 +2,7 @@
 
 - **Fecha:** 19/11/2026
 - **Estado:** borrador para aprobación
-- **Prototipo desechable:** [`demo/`](../../../demo/README.md) (iteración 1: veredicto + mapa con datos reales y reglas provisionales)
+- **Plan de implementación:** [`docs/superpowers/plans/2026-11-20-app-completa.md`](../plans/2026-11-20-app-completa.md). El prototipo `demo/` sirvió para iterar y se retiró al construir la app definitiva (20/11/2026).
 - **Diagrama:** [`docs/arquitectura.excalidraw`](../../arquitectura.excalidraw) (editable en excalidraw.com o en VS Code)
 - **Regla del proyecto ([`CLAUDE.md`](../../../CLAUDE.md)):** las funcionalidades deben ser siempre lo más sencillas posible para el usuario final: una única respuesta clara, sin ramas ni opciones que tenga que interpretar.
 
@@ -57,7 +57,7 @@ Ordenados por impacto. Si alguno falla, la app da respuestas falsas o la demo se
 
 Hackatón 2Campus1Code (DAETSISI-DAETSIINF-ORANGE): un MVP web que consuma datos abiertos oficiales y los convierta en un servicio útil para la ciudadanía, con frontend y backend, y que aporte valor más allá de mostrar datos (filtrado, recomendaciones, cruce de fuentes). Se presenta ante un jurado.
 
-El servicio: una persona escribe **a dónde va**, **la etiqueta ambiental de su coche** (o, si quiere, su matrícula) y **dónde está empadronada**, y la app le dice con un único mensaje claro si puede llegar en coche según las Zonas de Bajas Emisiones (ZBE) de Madrid. Si no puede, le ofrece alternativas ordenadas (parkings permitidos, el punto permitido más cercano, aparcamientos disuasorios con transporte público) con tiempo y coste. Un mapa interactivo, filtrable por etiqueta ambiental, muestra por dónde puede y por dónde no puede circular, con cámaras, parkings y paradas.
+El servicio: una persona escribe **a dónde va**, **la etiqueta ambiental de su coche** (o, si quiere, su matrícula) y **dónde está empadronada**, y la app le dice con un único mensaje claro si puede llegar en coche según las Zonas de Bajas Emisiones (ZBE) de Madrid. Si no puede, le ofrece alternativas ordenadas (parkings permitidos, estaciones de metro y cercanías, y el punto permitido más cercano) con tiempo, coste y un enlace de ruta a Google Maps. Un mapa interactivo, filtrable por etiqueta ambiental, muestra por dónde puede y por dónde no puede circular, con cámaras y parkings.
 
 Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamiento de Madrid, CRTM/EMT, IGN), cita el artículo de la ordenanza en cada respuesta y no guarda datos personales.
 
@@ -65,7 +65,7 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 
 1. **Veredicto único** para dirección + etiqueta (o matrícula) + padrón: «✔ Puedes entrar», «⚠ Solo puedes entrar para aparcar en un parking público» o «✖ No puedes entrar».
 2. **Alternativas** cuando no puede entrar (o solo para aparcar): una sola lista ordenada por tiempo, con la más barata marcada, costes calculados para 2 h por defecto y **duración editable** en la pantalla de resultado.
-3. **Mapa filtrable por etiqueta**: zonas coloreadas según lo que puede hacer ese coche, cámaras de la ZBE, parkings (con ocupación en tiempo real cuando exista), disuasorios y paradas de transporte.
+3. **Mapa filtrable por etiqueta**: zonas coloreadas según lo que puede hacer ese coche, cámaras de la ZBE, y parkings (con plazas libres en tiempo real cuando existan). Las paradas cercanas al destino se muestran en el resultado.
 4. **Transparencia**: cada veredicto muestra el artículo de la Ordenanza 2/2026 aplicado y la fecha de revisión de las reglas; la app muestra la fecha real de cada fuente de datos.
 5. **Seguridad y privacidad** según la sección 9.
 
@@ -73,7 +73,7 @@ Valor diferencial ante el jurado: cruza cuatro fuentes oficiales (DGT, Ayuntamie
 
 - **Motos** (y por tanto franjas horarias de motos): si la matrícula es de moto, la app responde «Por ahora solo comprobamos coches». Todo lo que no es moto se trata como coche (el fichero de la DGT no distingue turismos de furgonetas).
 - Otras ciudades distintas de Madrid. Si la dirección cae fuera del municipio: «Solo cubrimos el municipio de Madrid».
-- Cálculo de rutas o navegación. Cada alternativa tiene un enlace «Cómo llegar» que abre Google Maps con el destino.
+- Cálculo de rutas o navegación. «Cómo llegar» abre Google Maps con la ruta en coche hasta donde se deja el coche (o hasta el destino, si se puede entrar); Google Maps no combina coche y a pie en un mismo enlace.
 - Permisos especiales (invitaciones de Distrito Centro, PMR, carga y descarga, servicios esenciales, autorizaciones del Sistema de Gestión de Accesos).
 - Excepción por IVTM sin padrón (coches que pagan el impuesto en Madrid pero cuyo titular no está empadronado).
 - Cuentas de usuario, historial o guardado de consultas.
@@ -148,11 +148,11 @@ El mapa no está siempre a la vista: así el formulario es muy sencillo, sobre t
   Art. X, Ordenanza 2/2026 · reglas revisadas el DD/MM/2026
 
   Costes calculados para [ 2 h ▾ ]        Tiempo desde que aparcas
-  1. Parking Plaza Mayor (entrada permitida)   6 min · 7,40 €  [Cómo llegar]
-  2. Punto permitido más cercano + andar      14 min · —       [Cómo llegar]
-  3. Disuasorio + Metro L10   💰 más barata    38 min · 4,00 €  [Cómo llegar]
+  1. Aparcamiento Plaza de las Descalzas  Más barata   4 min · 5,08 €        [Cómo llegar]
+  2. Fuera de ZBEDEP Distrito Centro                  11 min · —             [Cómo llegar]
+  3. Metro Bilbao (L1, L4)                            14 min · desde 4,00 €  [Cómo llegar]
 
-  Cerca de tu destino: Metro Sol (L1, L2, L3) · 150 m
+  Cerca de tu destino: Metro Sol (L1, L2, L3) a 239 m; …
 ```
 (cifras de ejemplo)
 
@@ -183,7 +183,7 @@ El mapa no está siempre a la vista: así el formulario es muy sencillo, sobre t
 - **Accesibilidad:** foco visible en todos los controles, radios nativos (ocultos visualmente) bajo las pegatinas y el selector, el resultado en una región `aria-live`, contraste AA también en modo oscuro.
 - **Cámaras:** violetas con borde blanco (ningún color de zona es violeta) y tamaño según el zoom: punto de 10 px a escala de ciudad, 18 px con pictograma de cámara desde el zoom 14 y 26 px desde el 16. No entran en el recorrido del tabulador (son 603).
 - La ZBE general se dibuja con trazo fino (es todo el municipio, con huecos en las autovías) para no tapar las ZBEDEP.
-- **Capas** futuras: cámaras de la ZBE y de Distrito Centro, parkings (con plazas libres si hay dato en tiempo real), disuasorios, paradas de metro/cercanías y EMT.
+- **Capas:** zonas, cámaras y los 75 parkings («P» azul, con plazas libres y precio de la primera hora). Las estaciones y las paradas EMT no se pintan en el mapa por ahora.
 - Las ventanas emergentes se construyen con elementos del DOM, nunca con cadenas HTML (sección 9).
 - Hay miles de paradas EMT: el mapa usa `preferCanvas: true` y la capa de paradas EMT solo se pinta a partir de cierto nivel de zoom. **[decisión de diseño]**
 
@@ -211,21 +211,25 @@ data/  matriculas.db (generado, fuera de git) · geo/*.geojson (en git)
 ingest/  scripts offline que descargan las fuentes oficiales y generan data/
 ```
 
-### 8.2 Estructura de carpetas **[decisión de diseño]**
+### 8.2 Estructura de carpetas (la construida)
 
 ```
 app/
-  main.py            rutas, estáticos, cabeceras de seguridad, manejo de errores
-  vehiculo.py  geo.py  reglas.py  ranking.py  externos.py
-  static/            index.html · app.js · style.css · vendor/leaflet/
-data/
-  reglas.json  fuentes.json  geo/*.geojson
-  matriculas.db      (generado; en .gitignore)
-  raw/               (descargas; en .gitignore)
+  vehiculo.py        matrícula → etiqueta (reglas españolas, SQLite de solo lectura)
+  geo.py             zonas, ¿en qué zonas cae un punto?, distancias en metros
+  reglas.py          regla vigente y veredicto en un punto
+  externos.py        CartoCiudad (direcciones y sugerencias) y plazas libres (SOAP)
+  ranking.py         alternativas, coste por tramos, paradas cercanas, enlace a Google Maps
+  main.py            rutas, cabeceras de seguridad, estáticos
+  static/            index.html · app.js · style.css · img/ · vendor/ (Leaflet, Barlow) · geo/camaras.geojson
 ingest/
-  dgt.py  madrid.py  transporte.py
-tests/
-requirements.txt     versiones fijadas
+  __init__.py        registrar_fuente() → data/fuentes.json
+  dgt.py  zonas.py  aparcamientos.py  estaciones.py
+data/
+  reglas.json  zonas.geojson  aparcamientos.json  estaciones.json  fuentes.json   (en git)
+  matriculas.db  raw/                                                            (fuera de git)
+tests/               pytest: vehiculo, reglas, externos, ingest, ranking, api
+requirements.txt     versiones fijadas · pytest.ini
 ```
 
 ### 8.3 API
@@ -265,7 +269,7 @@ Con `estado = ok`:
   "nota": "texto o null (aviso del histórico con matrícula original)",
   "horas": 2,
   "alternativas": [
-    { "tipo": "parking | disuasorio | estacion | punto_permitido",
+    { "tipo": "parking | estacion | punto_permitido",
       "nombre": "…", "lat": 0, "lng": 0,
       "minutos": 6, "coste_eur": 7.4, "mas_barata": false,
       "plazas_libres": 120, "detalle": "Entrada permitida para aparcar",
@@ -280,9 +284,9 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 
 **`GET /api/zonas?etiqueta=B&padron=fuera`** → GeoJSON de las zonas con la propiedad `veredicto` calculada por el mismo motor de reglas (así el mapa nunca duplica la lógica en JavaScript).
 
-**`GET /api/parkings`** → parkings con plazas libres y tarifas del servicio en tiempo real (caché de 5 min). Si el servicio falla, la lista fija sin ocupación.
+**`GET /api/parkings`** → `FeatureCollection` con los 75 parkings: `nombre`, `plazas_libres` (o `null`) y `precio_hora` (primera hora, o `null`). Plazas libres con caché de 5 min; si el servicio falla, todos con `null`.
 
-**Estáticos**: `/` (frontend) y `/geo/*.geojson` (cámaras, paradas, disuasorios, perímetros), con caché del navegador.
+**Estáticos**: `/` (frontend) y `/geo/camaras.geojson`, con caché del navegador.
 
 ### 8.4 Módulos
 
@@ -318,13 +322,15 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 - Para cada combinación aplicable a hoy debe haber exactamente una regla (lo garantiza un test).
 - El contenido sale de leer el BOAM (sección 10). La tabla de la prensa es solo una pista, no la fuente: los coches sin etiqueta empadronados en Madrid podrían circular por la ZBE general hasta el 31/12/2026, pero no por las ZBEDEP; en Distrito Centro, B y C solo para aparcar en un aparcamiento; los vecinos de Distrito Centro tienen acceso; hay fuentes contradictorias sobre B y C en Plaza Elíptica.
 
-**ranking.py**
-- **Candidatos**: parkings públicos, disuasorios, estaciones de metro/cercanías (para aparcar cerca y seguir en transporte) y el punto permitido más cercano. Se descarta todo candidato en cuya ubicación el coche no pueda estar (mismo motor de reglas): con veredicto `no_puede`, o `solo_parking` si el candidato no es un parking. También se descartan los parkings completos.
-- **Tiempo** (*shortcut: sin motor de rutas; distancia en línea recta × 1,3. Mejorar con un servicio de rutas si da tiempo*):
-  - andando: 4,5 km/h, si la distancia es ≤ 1,5 km;
-  - si no, transporte público: 25 km/h + 5 min de espera + 5 min andando hasta la estación y desde ella.
-- **Coste**: parkings, tarifa del servicio en tiempo real × horas (si no hay tarifa, `null`). Metro y autobús: **2,00 € por trayecto × 2 (ida y vuelta) = 4,00 €**. Es el billete sencillo de Metro zona A para 10 estaciones o más, la tarifa más alta; el de EMT cuesta 1,50 € y uno de Metro de hasta 5 estaciones, 1,50 €. Se usa la más alta para no prometer menos de lo que se paga. Cercanías: `null` (*shortcut: el precio depende de cuántas zonas se crucen, de 1,70 € a 5,50 €; calcularlo si los datos del CRTM traen la zona de cada estación*). No se usa el billete de 10 viajes (7,30 €, con descuento temporal hasta el 31 de diciembre) porque no todo el mundo lo tiene. Fuente: tarifas del CRTM, enlazadas desde [comunidad.madrid/transporte/tarifas](https://www.comunidad.madrid/transporte/tarifas) (consultado el 19/11/2026; los billetes sencillos no tienen descuento temporal). Los precios van en una constante con la fuente y la fecha en un comentario. Aparcar en la calle, `null` (la zona SER no se calcula).
-- Orden por minutos; máximo 5 alternativas; `mas_barata` en la de menor coste conocido.
+**ranking.py** (tal como quedó al implementarlo)
+- **Candidatos:** los 75 parkings del servicio SOAP, las estaciones de Metro (242) y Cercanías (111) del CRTM y el punto permitido más cercano. Un parking vale si el veredicto en su posición es `puede`, `solo_parking` o fuera de toda zona, y no está lleno (0 plazas libres); una estación o el punto permitido, si es `puede` o fuera de toda zona. Los disuasorios no se etiquetan aparte: un parking lejano aparece «en transporte público».
+- **Se eligen** los 2 mejores parkings, las 2 mejores estaciones y el punto permitido; se ordenan por minutos y se muestran 5 como mucho.
+- **Punto permitido:** fuera de la zona **más amplia** que prohíbe en el destino (no la del veredicto, que cita la más específica). Solo cuenta el borde exterior de la zona: los huecos de la ZBE general son autovías. Se aparta 30 m del borde.
+- **Tiempo** (*shortcut: sin motor de rutas; línea recta × 1,3*): a pie a 4,5 km/h si sale ≤ 1,5 km; si no, transporte a 25 km/h + 10 min (espera y andar). Cuenta desde que se aparca.
+- **Coste:** parkings, con sus tarifas por tramos de minutos (progresivas) y el máximo diario como tope (desde su minuto de inicio, precio fijo). Estación de Metro alcanzada en transporte público: 2,00 € por trayecto en la zona A y 3,00 € fuera (billete combinado), × 2, marcado «desde» porque no incluye aparcar en la calle. Cercanías y la calle: precio no disponible. «Más barata» solo entre costes completos.
+- **Tarifas del SOAP poco fiables:** algunos parkings publican como «Minutos» precios que no lo son. En la ingesta, un precio > 0,20 €/min que acaba en 1440 se toma como máximo diario; cualquier otro, o un máximo «desde el minuto 0» junto a precios por minuto, deja el parking con precio «no disponible» (quedan 32 parkings con tarifas).
+- **Paradas cercanas:** las 3 estaciones más próximas a ≤ 600 m del destino. Las paradas de autobús EMT quedan fuera por ahora.
+- **«Cómo llegar»:** enlace de Google Maps en coche hasta donde se deja el coche.
 
 **externos.py** (llamadas a servicios externos: el código del servidor que pide datos a servicios de terceros)
 - **CartoCiudad** `https://www.cartociudad.es/geocoder/api/geocoder/find?q=…` (medido: ~1,3 s; devuelve `lat`, `lng`, `muniCode`, `type`, `postalCode`). Fuera de Madrid si `muniCode != "28079"`. Se quitan los códigos postales `28xxx` (confunden el portal, ver punto crítico 5) y se añade «, Madrid» si no está.
@@ -374,10 +380,8 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 | datos.madrid.es · ZBEDEP Distrito Centro (dataset 300229) | perímetro y cámaras de Centro | GeoJSON/CSV de cámaras; ZIP con SHP del perímetro | Cámaras: 18/06/2026. **Perímetro: SHP de 2018** («Madrid_Central»): comprobar con el anexo de la ordenanza. |
 | datos.madrid.es · ZBE Madrid, cámaras (300654) | cámaras **y perímetro** de la ZBE general | ZIP con SHP: `ZBE_MADRID_CAMARAS` (463 cámaras), `ZBE_TM` (47 polígonos; su unión mide 604 km², el término municipal; `Via_Out=1` parecen corredores de autovías excluidos), `ZBE_MADRID_FOTO_ROJOS` | Ficheros del 29/12/2025 |
 | datos.madrid.es · ZBEDEP Plaza Elíptica | perímetro | ZIP con SHP · `https://geoportal.madrid.es/fsdescargas/IDEAM_WBGEOPORTAL/MOVILIDAD/ZBEDEP/ZBEDEP_Plaza_Eliptica.zip`: límite, 25 puntos de control, viarios con restricciones y **5 barrios con acceso para residentes** (Zofío, Abrantes, Moscardó, Opañel, Comillas) | Ficheros de 2021 (ZIP de 2025) |
-| datos.madrid.es · aparcamientos públicos municipales (202625) | parkings y disuasorios | CSV/GeoJSON (el JSON está mal formado) | 13/11/2026 · 63 aparcamientos (39 mixtos, 19 públicos, 5 disuasorios) con coordenadas; sin tarifas |
-| Ayto. Madrid · parkings en tiempo real (50027) | ocupación y tarifas | SOAP · `https://servayto.madrid.es/MTPAR_WSINFO/InfoParking?wsdl` | En directo. Respondió por la mañana del 19/11/2026; por la tarde cortaba la conexión desde el mismo equipo (igual que datos.madrid.es): la lista fija de respaldo es imprescindible |
-| EMT · GTFS (datos.madrid.es) | paradas de autobús | GTFS (`stops.txt`) | Comprobar al descargar |
-| CRTM · datos.crtm.es | estaciones de metro y cercanías | Descargas del portal; licencia: citar al CRTM | Comprobar al descargar |
+| Ayto. Madrid · parkings (servicio SOAP, dataset 50027) | parkings, tarifas y plazas libres | `POST https://servayto.madrid.es/MTPAR_WSINFO/InfoParking`: `GetListParking` (75 parkings con coordenadas; 25 con plazas libres, en una sola llamada) y `GetDetailParking` (tarifas por tramos) | En directo. Corta las ráfagas de peticiones: la ingesta espera 0,5 s entre llamadas y la app hace como mucho una cada 5 min |
+| CRTM · datos.crtm.es | estaciones de metro y cercanías | Servicios ArcGIS `M4_Red` (Metro, 293 registros → 242 estaciones al fundir las repetidas por línea) y `M5_Red` (Cercanías, 111) | Fecha de actualización en el propio dato (`FECHAACTUAL` 29/05/2026) |
 | CRTM · tarifas ([comunidad.madrid/transporte/tarifas](https://www.comunidad.madrid/transporte/tarifas)) | precio del billete | [Metro](https://crtm.es/billetes-y-tarifas/billetes-y-abonos/metro/?idPestana=3) · [EMT](https://www.crtm.es/billetes-y-tarifas_old/billetes-y-abonos/autobuses-urbanos-de-madrid-emt/?idPestana=3&lang=) · [Cercanías](https://crtm.es/billetes-y-tarifas_old/billetes-y-abonos/cercanias-ferroviarias/?idPestana=3&lang=) | Consultado el 19/11/2026: Metro zona A 1,50–2,00 €, EMT 1,50 €, 10 viajes 7,30 € (descuento temporal), Cercanías 1,70–5,50 € según zonas |
 | IGN · CartoCiudad | geocodificación | API REST, sin clave | En directo |
 | Ordenanza 2/2026, de 24 de marzo | reglas | BOAM nº 10.103 (10/04/2026); corrección en BOCM nº 107 (07/05/2026): `https://www.bocm.es/boletin/CM_Orden_BOCM/2026/05/07/BOCM-20260507-49.PDF` | Entrada en vigor por confirmar en el texto (la prensa dice 07/04/2026; el BOAM es del 10/04/2026) |
@@ -395,7 +399,7 @@ Errores de validación: 422 (FastAPI). Errores inesperados: 500 con mensaje gen�
 
 1. Veredicto (formulario → matrícula → zona → reglas → mensaje con artículo).
 2. Mapa con zonas coloreadas por etiqueta y cámaras.
-3. Alternativas con parkings y disuasorios de la lista fija.
+3. Alternativas con parkings, estaciones y punto permitido.
 4. Ocupación y tarifas en tiempo real (SOAP).
 5. Paradas de transporte y estaciones como candidatos.
 
@@ -406,6 +410,5 @@ Cada paso deja la app presentable por sí solo.
 - **Leer el BOAM nº 10.103** (y la corrección del BOCM) y escribir `reglas.json`: todas las combinaciones, artículo por regla, fechas de vigencia, franjas horarias de coches si las hubiera, y la interpretación más restrictiva ante la duda (anotándola).
 - Confirmar el perímetro de Distrito Centro con el anexo y el significado de `Via_Out` en `ZBE_TM`.
 - Decidir cómo cubrir a los residentes de los 5 barrios de Plaza Elíptica (hoy la pregunta del padrón no los distingue).
-- Explorar las operaciones del SOAP de parkings y el formato de las tarifas.
+- Revisar las tarifas «de acceso» (3 parkings, hoy ignoradas) y los parkings que se quedan sin precio por datos incoherentes del servicio.
 - Confirmar en el BOAM el régimen de los históricos: exentos en la ZBE general (art. 21.3 OMS según la [página de Madrid ZBE](https://madrid.es/go/KilV)), en Plaza Elíptica (lo menciona la corrección del BOCM) y en Distrito Centro (hoy «no puede» por precaución), y si hay límite de días al año (la prensa de 2024-2025 habla de 96). Reglamento de referencia: Real Decreto 892/2024.
-- Actualizar `AI_USAGE.md` y añadir al README los enlaces a las fuentes.
