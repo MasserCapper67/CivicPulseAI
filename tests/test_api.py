@@ -44,3 +44,11 @@ def test_cabeceras_y_parkings(cliente):
     r = cliente.get("/api/parkings")
     assert r.headers["cache-control"] == "no-store" and "default-src 'self'" in r.headers["content-security-policy"]
     assert len(r.json()["features"]) >= 50
+
+
+def test_sin_etiqueta_el_punto_permitido_sale_de_todas_las_zonas(cliente):
+    # En Calle Mayor 10 prohíben la ZBE general y Distrito Centro: el punto tiene que quedar fuera de las dos
+    from app.geo import zonas_en
+    r = cliente.post("/api/comprobar", json={"direccion": "Calle Mayor 10", "etiqueta": "A", "padron": "fuera"}).json()
+    puntos = [a for a in r["alternativas"] if a["tipo"] == "punto_permitido"]
+    assert puntos and zonas_en(puntos[0]["lng"], puntos[0]["lat"]) == []

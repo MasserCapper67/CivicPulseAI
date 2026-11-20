@@ -104,7 +104,7 @@ def comprobar(c: Consulta):
         "nota": nota,
         "horas": c.horas,
         "como_llegar": enlace_maps(destino["lat"], destino["lng"]) if puede else None,
-        "alternativas": [] if puede else alternativas(destino, etiqueta, c.padron, zona, c.horas, hoy, externos.ocupacion()),
+        "alternativas": [] if puede else alternativas(destino, etiqueta, c.padron, c.horas, hoy, externos.ocupacion()),
         "paradas_cercanas": paradas_cercanas(destino["lng"], destino["lat"]),
     }
 

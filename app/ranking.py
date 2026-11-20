@@ -5,8 +5,8 @@ import math
 import shapely
 from shapely.ops import nearest_points
 
-from app.geo import RAIZ, ZONAS, a_grados, a_metros, distancia_m
-from app.reglas import veredicto
+from app.geo import RAIZ, ZONAS, a_grados, a_metros, distancia_m, zonas_en
+from app.reglas import regla, veredicto
 
 # shortcut: sin motor de rutas; distancia en línea recta × rodeo. Mejorar con un servicio de rutas si da tiempo.
 A_PIE_KMH = 4.5
@@ -90,7 +90,16 @@ def _alternativa(tipo, nombre, lng, lat, destino, coste_eur=None, plazas_libres=
             "como_llegar": enlace_maps(lat, lng)}
 
 
-def alternativas(destino, etiqueta, padron, zona, horas, hoy, plazas):
+def _zona_que_prohibe(destino, etiqueta, padron, hoy):
+    """La zona más amplia que no deja circular libremente (en zonas.geojson van de la más amplia a la más
+    específica). No es la del veredicto: aquel cita la más específica para que el mensaje sea claro."""
+    for zona in zonas_en(destino["lng"], destino["lat"]):
+        if regla(zona, etiqueta, padron, hoy)["veredicto"] != "puede":
+            return zona
+    return None
+
+
+def alternativas(destino, etiqueta, padron, horas, hoy, plazas):
     """Hasta 2 parkings, 2 estaciones y el punto permitido más cercano, ordenados por minutos desde que se aparca."""
     parkings = [
         _alternativa("parking", f"Aparcamiento {p['nombre']}", p["lng"], p["lat"], destino,
@@ -110,7 +119,8 @@ def alternativas(destino, etiqueta, padron, zona, horas, hoy, plazas):
 
     por_minutos = lambda a: a["minutos"]  # noqa: E731
     elegidas = sorted(parkings, key=por_minutos)[:MAX_POR_TIPO] + sorted(estaciones, key=por_minutos)[:MAX_POR_TIPO]
-    punto = punto_permitido(destino["lng"], destino["lat"], zona)
+    zona = _zona_que_prohibe(destino, etiqueta, padron, hoy)
+    punto = punto_permitido(destino["lng"], destino["lat"], zona) if zona else None
     if punto and _permitido(*punto, etiqueta, padron, hoy, ("puede",)):
         elegidas.append(_alternativa("punto_permitido", f"Fuera de {ZONAS[zona][0]}", *punto, destino))
     elegidas = sorted(elegidas, key=por_minutos)[:MAX_ALTERNATIVAS]

@@ -38,7 +38,7 @@ def test_punto_permitido_sin_etiqueta_sale_del_municipio():
 
 
 def test_alternativas_b_en_centro():
-    alts = alternativas(DESTINO_SOL, "B", "fuera", "zbedep_centro", 2, HOY, {})
+    alts = alternativas(DESTINO_SOL, "B", "fuera", 2, HOY, {})
     assert 1 <= len(alts) <= 5 and [a["minutos"] for a in alts] == sorted(a["minutos"] for a in alts)
     assert all(sum(a["tipo"] == t for a in alts) <= 2 for t in ("parking", "estacion"))
     for a in alts:  # nadie manda a un sitio donde no se puede estar
@@ -47,18 +47,18 @@ def test_alternativas_b_en_centro():
 
 
 def test_alternativas_sin_etiqueta_de_fuera():
-    alts = alternativas(DESTINO_SOL, "A", "fuera", "zbe_madrid", 2, HOY, {})
+    alts = alternativas(DESTINO_SOL, "A", "fuera", 2, HOY, {})
     assert alts and {a["tipo"] for a in alts} <= {"estacion", "punto_permitido"}
 
 
 def test_parking_lleno_se_descarta():
-    primero = next(a for a in alternativas(DESTINO_SOL, "B", "fuera", "zbedep_centro", 2, HOY, {}) if a["tipo"] == "parking")
+    primero = next(a for a in alternativas(DESTINO_SOL, "B", "fuera", 2, HOY, {}) if a["tipo"] == "parking")
     lleno = {p["id"]: 0 for p in ranking.APARCAMIENTOS if p["nombre"] in primero["nombre"]}
-    assert primero["nombre"] not in [a["nombre"] for a in alternativas(DESTINO_SOL, "B", "fuera", "zbedep_centro", 2, HOY, lleno)]
+    assert primero["nombre"] not in [a["nombre"] for a in alternativas(DESTINO_SOL, "B", "fuera", 2, HOY, lleno)]
 
 
 def test_mas_barata_solo_con_coste_completo():
-    alts = alternativas(DESTINO_SOL, "B", "fuera", "zbedep_centro", 2, HOY, {})
+    alts = alternativas(DESTINO_SOL, "B", "fuera", 2, HOY, {})
     baratas = [a for a in alts if a["mas_barata"]]
     assert len(baratas) <= 1 and all(a["coste_eur"] is not None and not a["coste_desde"] for a in baratas)
 
@@ -67,7 +67,7 @@ def test_sin_candidatos_devuelve_lista_vacia(monkeypatch):
     monkeypatch.setattr(ranking, "APARCAMIENTOS", [])
     monkeypatch.setattr(ranking, "ESTACIONES", [])
     monkeypatch.setattr(ranking, "punto_permitido", lambda *a: None)
-    assert alternativas(DESTINO_SOL, "B", "fuera", "zbedep_centro", 2, HOY, {}) == []
+    assert alternativas(DESTINO_SOL, "B", "fuera", 2, HOY, {}) == []
 
 
 def test_paradas_y_enlace():
