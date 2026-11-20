@@ -11,6 +11,7 @@ CARTOCIUDAD_CANDIDATOS = "https://www.cartociudad.es/geocoder/api/geocoder/candi
 SOAP_PARKINGS = "https://servayto.madrid.es/MTPAR_WSINFO/InfoParking"
 N = "{http://schemas.datacontract.org/2004/07/InfoParking}"  # espacio de nombres de las respuestas SOAP
 CADUCIDAD_OCUPACION = 300  # s: los servidores del Ayuntamiento cortan las ráfagas de peticiones
+CADUCIDAD_FALLO = 60       # s: con el servicio caído tampoco se insiste en cada petición
 MINUSCULAS = {"de", "del", "la", "las", "los", "el", "y"}
 
 
@@ -73,23 +74,24 @@ def leer_ocupacion(xml):
     """id del parking -> plazas libres, solo de los que traen el dato."""
     plazas = {}
     for parking in ET.fromstring(xml).iter(N + "lstParking"):
-        libres = parking.findtext(f"{N}lstOccupation/{N}occupation/{N}free")
-        if libres is not None:
-            plazas[int(parking.findtext(N + "id"))] = int(libres)
+        try:
+            plazas[int(parking.findtext(N + "id"))] = int(parking.findtext(f"{N}lstOccupation/{N}occupation/{N}free"))
+        except (TypeError, ValueError):
+            continue  # sin dato o mal formado: ese parking queda «sin datos de ocupación»
     return plazas
 
 
-_cache_ocupacion = None  # (momento, plazas)
+_cache_ocupacion = None  # (caduca_en, plazas)
 
 
 def ocupacion():
-    """Plazas libres en tiempo real (caché de 5 min). Si el servicio falla, {}: la app sigue sin ese dato."""
+    """Plazas libres en tiempo real (caché de 5 min). Si el servicio falla, {} durante 1 min: la app sigue sin ese dato."""
     global _cache_ocupacion
-    if _cache_ocupacion and time.monotonic() - _cache_ocupacion[0] < CADUCIDAD_OCUPACION:
+    if _cache_ocupacion and time.monotonic() < _cache_ocupacion[0]:
         return _cache_ocupacion[1]
     try:
-        plazas = leer_ocupacion(pedir_lista_parkings())
+        plazas, caducidad = leer_ocupacion(pedir_lista_parkings()), CADUCIDAD_OCUPACION
     except (httpx.HTTPError, ET.ParseError):
-        return {}  # el fallo no se cachea: la próxima petición lo vuelve a intentar
-    _cache_ocupacion = (time.monotonic(), plazas)
+        plazas, caducidad = {}, CADUCIDAD_FALLO
+    _cache_ocupacion = (time.monotonic() + caducidad, plazas)
     return plazas
