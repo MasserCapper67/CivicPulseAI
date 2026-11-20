@@ -1,0 +1,1388 @@
+[
+ {
+  "id": 3,
+  "nombre": "Corazón de María II",
+  "direccion": "Calle Corazón de María",
+  "lat": 40.438524,
+  "lng": -3.645525,
+  "tarifas": []
+ },
+ {
+  "id": 4,
+  "nombre": "Encuentro",
+  "direccion": "Plaza Encuentro",
+  "lat": 40.405464,
+  "lng": -3.651354,
+  "tarifas": []
+ },
+ {
+  "id": 5,
+  "nombre": "Nuestra Señora del Recuerdo",
+  "direccion": "Calle de la Hiedra",
+  "lat": 40.472181,
+  "lng": -3.67916,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "nombre": "Corona Boreal",
+  "direccion": "Calle  Perez de Victoria",
+  "lat": 40.4568,
+  "lng": -3.7832,
+  "tarifas": []
+ },
+ {
+  "id": 7,
+  "nombre": "Avenida de Portugal",
+  "direccion": "Avda. de Portugal, s/n. Frente al nº 51",
+  "lat": 40.415415,
+  "lng": -3.727515,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 445,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 446,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 21.0
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "nombre": "Paseo de Recoletos",
+  "direccion": "Paseo Recoletos",
+  "lat": 40.421191,
+  "lng": -3.691953,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "nombre": "Condesa de Gavia",
+  "direccion": "Plaza Condesa de Gavia",
+  "lat": 40.4490039,
+  "lng": -3.7019123,
+  "tarifas": []
+ },
+ {
+  "id": 11,
+  "nombre": "Vázquez de Mella",
+  "direccion": "Plaza Vázquez de Mella, s/n",
+  "lat": 40.420653,
+  "lng": -3.699282,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0412
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.037
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0494
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.6
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "nombre": "Almagro",
+  "direccion": "Almagro",
+  "lat": 40.429801,
+  "lng": -3.693238,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "nombre": "Jacinto Benavente",
+  "direccion": "Plaza J. Benavente",
+  "lat": 40.414267,
+  "lng": -3.703448,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "nombre": "América",
+  "direccion": "Avda. América (intercambiador)",
+  "lat": 40.4380932,
+  "lng": -3.67669,
+  "tarifas": []
+ },
+ {
+  "id": 18,
+  "nombre": "Brasil",
+  "direccion": "Avda. Brasil (entre General Yagüe y Pedro Texeira)",
+  "lat": 40.45615,
+  "lng": -3.69374,
+  "tarifas": []
+ },
+ {
+  "id": 21,
+  "nombre": "Palacio Municipal de Congresos",
+  "direccion": "Avda. Capital de España, s/n",
+  "lat": 40.46190431,
+  "lng": -3.6160214,
+  "tarifas": []
+ },
+ {
+  "id": 22,
+  "nombre": "Orense",
+  "direccion": "Avda. General Perón",
+  "lat": 40.453019,
+  "lng": -3.694009,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "nombre": "Daoíz y Velarde",
+  "direccion": "Avda. Ciudad de Barcelona ( C/ Alberche y C/ Téllez)",
+  "lat": 40.4030883,
+  "lng": -3.6784287,
+  "tarifas": []
+ },
+ {
+  "id": 25,
+  "nombre": "Marqués de Salamanca",
+  "direccion": "Plaza M. Salamanca",
+  "lat": 40.430293,
+  "lng": -3.679197,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "nombre": "Felipe II",
+  "direccion": "Avda. Felipe II y C/ Goya)",
+  "lat": 40.424015,
+  "lng": -3.67567,
+  "tarifas": []
+ },
+ {
+  "id": 28,
+  "nombre": "General Yagüe",
+  "direccion": "Avda. Brasil, 15 Nº15 al 19",
+  "lat": 40.4543339,
+  "lng": -3.6939585,
+  "tarifas": []
+ },
+ {
+  "id": 29,
+  "nombre": "Hernani",
+  "direccion": "C/ Hernani (entre C/ Orense y Comandante Zorita)",
+  "lat": 40.4482467,
+  "lng": -3.6999184,
+  "tarifas": []
+ },
+ {
+  "id": 30,
+  "nombre": "José Castán Tobeñas",
+  "direccion": "C/ José Castán Tobeñas",
+  "lat": 40.46473,
+  "lng": -3.69225,
+  "tarifas": []
+ },
+ {
+  "id": 31,
+  "nombre": "Miguel Yuste",
+  "direccion": "C/ Miguel Yuste s/n",
+  "lat": 40.43733,
+  "lng": -3.62371,
+  "tarifas": []
+ },
+ {
+  "id": 33,
+  "nombre": "Presidente Carmona",
+  "direccion": "Avda. Presidente Carmona",
+  "lat": 40.4541445,
+  "lng": -3.697261,
+  "tarifas": []
+ },
+ {
+  "id": 35,
+  "nombre": "Reyes Magos",
+  "direccion": "Plaza Reyes Magos",
+  "lat": 40.4089554,
+  "lng": -3.6759568,
+  "tarifas": []
+ },
+ {
+  "id": 36,
+  "nombre": "San Cayetano",
+  "direccion": "Plaza San Cayetano",
+  "lat": 40.434403,
+  "lng": -3.670343,
+  "tarifas": []
+ },
+ {
+  "id": 39,
+  "nombre": "Serrano II",
+  "direccion": "C/ Serrano entre Ortega y Gasset y Hermosilla",
+  "lat": 40.42865,
+  "lng": -3.68715,
+  "tarifas": []
+ },
+ {
+  "id": 40,
+  "nombre": "Serrano III",
+  "direccion": "C/ Serrano entre Jorge Juan y Pza. Independencia",
+  "lat": 40.4197583,
+  "lng": -3.6884056,
+  "tarifas": []
+ },
+ {
+  "id": 41,
+  "nombre": "Sevilla",
+  "direccion": "C/ Sevilla y C/ Alcalá",
+  "lat": 40.418054,
+  "lng": -3.6992503,
+  "tarifas": []
+ },
+ {
+  "id": 42,
+  "nombre": "Velázquez Ayala",
+  "direccion": "C/ Velázquez ( y C/ Ayala)",
+  "lat": 40.42761,
+  "lng": -3.68379,
+  "tarifas": []
+ },
+ {
+  "id": 43,
+  "nombre": "Velázquez Jorge Juan",
+  "direccion": "C/ Velázquez ( y C/ Jorge Juan)",
+  "lat": 40.4234377,
+  "lng": -3.6771486,
+  "tarifas": []
+ },
+ {
+  "id": 44,
+  "nombre": "Verdaguer y García",
+  "direccion": "C/ Verdaguer y García",
+  "lat": 40.4403579,
+  "lng": -3.6546779,
+  "tarifas": []
+ },
+ {
+  "id": 45,
+  "nombre": "Auditorio",
+  "direccion": "C/ Príncipe de Vergara (Junto Auditorio)",
+  "lat": 40.4229427,
+  "lng": -3.6801218,
+  "tarifas": []
+ },
+ {
+  "id": 47,
+  "nombre": "Fernández Shaw",
+  "direccion": "C/ Carlos y Guillermo Fernández Shaw",
+  "lat": 40.4043224,
+  "lng": -3.668314,
+  "tarifas": []
+ },
+ {
+  "id": 50,
+  "nombre": "Mostenses",
+  "direccion": "Plaza Mostenses y C/ Ricardo León",
+  "lat": 40.4235602,
+  "lng": -3.7089974,
+  "tarifas": []
+ },
+ {
+  "id": 51,
+  "nombre": "Museo de la Ciudad",
+  "direccion": "C/ Príncipe de Vergara, 152 ( y C/ Pechuán )",
+  "lat": 40.4474968,
+  "lng": -3.6779271,
+  "tarifas": []
+ },
+ {
+  "id": 53,
+  "nombre": "Plaza de España",
+  "direccion": "Plaza de España",
+  "lat": 40.423636,
+  "lng": -3.711583,
+  "tarifas": []
+ },
+ {
+  "id": 58,
+  "nombre": "Velázquez Juan Bravo",
+  "direccion": "C/ Velázquez ( y C/ Juán Bravo)",
+  "lat": 40.4321,
+  "lng": -3.6834,
+  "tarifas": []
+ },
+ {
+  "id": 60,
+  "nombre": "Díaz Porlier",
+  "direccion": "C/Diego de León,64(Príncipe de Vergara-Cde. Peñalver)",
+  "lat": 40.4345198,
+  "lng": -3.675167,
+  "tarifas": []
+ },
+ {
+  "id": 61,
+  "nombre": "República Dominicana",
+  "direccion": "Pza Rep Dominicana C/Costa Rica y C/Alberto Alcocer",
+  "lat": 40.45869,
+  "lng": -3.67647,
+  "tarifas": []
+ },
+ {
+  "id": 62,
+  "nombre": "Serrano I",
+  "direccion": "C/Serrano entre Hnos. Becquer y Marq. de Villamejor",
+  "lat": 40.4359971,
+  "lng": -3.6872468,
+  "tarifas": []
+ },
+ {
+  "id": 63,
+  "nombre": "Marqués de Urquijo",
+  "direccion": "Marq de Urquijo(entre C/Princesa y J. �?lv. Mendiz.",
+  "lat": 40.4298028,
+  "lng": -3.7188502,
+  "tarifas": []
+ },
+ {
+  "id": 64,
+  "nombre": "Puerta Toledo",
+  "direccion": "Glorieta Puerta Toledo C/V Cptan. Salazar Martínez",
+  "lat": 40.407036,
+  "lng": -3.7110512,
+  "tarifas": []
+ },
+ {
+  "id": 67,
+  "nombre": "Villa de París",
+  "direccion": "Plaza Villa de París",
+  "lat": 40.425848,
+  "lng": -3.693658,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 68,
+  "nombre": "Garaje Centro",
+  "direccion": "C/ Relatores, 11",
+  "lat": 40.41303,
+  "lng": -3.703171,
+  "tarifas": [
+   {
+    "desde": 1,
+    "hasta": 60,
+    "periodo": "minutos",
+    "precio": 3.0
+   }
+  ]
+ },
+ {
+  "id": 71,
+  "nombre": "Pedro Zerolo",
+  "direccion": "Plaza Pedro Zerolo",
+  "lat": 40.42080587,
+  "lng": -3.699301,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 72,
+  "nombre": "Sánchez Bustillo",
+  "direccion": "C/Doctor Mata",
+  "lat": 40.409253799999,
+  "lng": -3.6941255,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0416
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0373
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0498
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 31.85
+   }
+  ]
+ },
+ {
+  "id": 73,
+  "nombre": "Plaza de Oriente",
+  "direccion": "PLAZA DE ORIENTE",
+  "lat": 40.419967,
+  "lng": -3.712986,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 74,
+  "nombre": "Plaza del Rey",
+  "direccion": "PLAZA DEL REY",
+  "lat": 40.420215,
+  "lng": -3.695741,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0409
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0366
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0489
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 31.25
+   }
+  ]
+ },
+ {
+  "id": 75,
+  "nombre": "Amparo",
+  "direccion": "CALLE AMPARO",
+  "lat": 40.407933,
+  "lng": -3.701445,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 60,
+    "periodo": "minutos",
+    "precio": 0.053
+   },
+   {
+    "desde": 0,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 0.032
+   },
+   {
+    "desde": 61,
+    "hasta": 420,
+    "periodo": "minutos",
+    "precio": 29.4
+   },
+   {
+    "desde": 421,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 0.043
+   }
+  ]
+ },
+ {
+  "id": 76,
+  "nombre": "Plaza del Carmen",
+  "direccion": "PZA. DEL CARMEN",
+  "lat": 40.418793,
+  "lng": -3.703406,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0416
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0373
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0498
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 31.85
+   }
+  ]
+ },
+ {
+  "id": 77,
+  "nombre": "Plaza de Santa Ana",
+  "direccion": "PZA. DE SANTA ANA",
+  "lat": 40.414533,
+  "lng": -3.700645,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0416
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0373
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0498
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 31.85
+   }
+  ]
+ },
+ {
+  "id": 78,
+  "nombre": "Luna - Tudescos",
+  "direccion": "TUDESCOS",
+  "lat": 40.421059,
+  "lng": -3.705773,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0425
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0381
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0508
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 32.5189
+   }
+  ]
+ },
+ {
+  "id": 79,
+  "nombre": "Plaza de las Cortes",
+  "direccion": "Plaza de las Cortes",
+  "lat": 40.41562,
+  "lng": -3.695354,
+  "tarifas": []
+ },
+ {
+  "id": 80,
+  "nombre": "Colón",
+  "direccion": "Plaza de Colón",
+  "lat": 40.424525,
+  "lng": -3.690138,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0416
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0373
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0498
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 31.85
+   }
+  ]
+ },
+ {
+  "id": 81,
+  "nombre": "Plaza de las Descalzas",
+  "direccion": "Plaza de las Descalzas Reales",
+  "lat": 40.418482,
+  "lng": -3.706983,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0425
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0381
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0508
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 32.5189
+   }
+  ]
+ },
+ {
+  "id": 82,
+  "nombre": "Arquitecto Ribera (Barceló)",
+  "direccion": "Barceló",
+  "lat": 40.4266495,
+  "lng": -3.700138,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0425
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0381
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0508
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 31.95
+   }
+  ]
+ },
+ {
+  "id": 84,
+  "nombre": "Plaza Mayor",
+  "direccion": "Plaza Mayor s/n",
+  "lat": 40.4200305,
+  "lng": -3.6963131,
+  "tarifas": []
+ },
+ {
+  "id": 85,
+  "nombre": "Casino de la Reina",
+  "direccion": "C/ del Casino",
+  "lat": 40.407031,
+  "lng": -3.703733,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0425
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0381
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0508
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 32.5
+   }
+  ]
+ },
+ {
+  "id": 86,
+  "nombre": "La Latina",
+  "direccion": "Calle de Toledo",
+  "lat": 40.408782,
+  "lng": -3.710914,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 20,
+    "periodo": "minutos",
+    "precio": 0.1
+   },
+   {
+    "desde": 21,
+    "hasta": 60,
+    "periodo": "minutos",
+    "precio": 0.025
+   },
+   {
+    "desde": 61,
+    "hasta": 600,
+    "periodo": "minutos",
+    "precio": 0.05
+   },
+   {
+    "desde": 601,
+    "hasta": 1440,
+    "periodo": "maximo",
+    "precio": 30.0
+   }
+  ]
+ },
+ {
+  "id": 87,
+  "nombre": "Mostenses",
+  "direccion": "Plaza de Los Mostenses",
+  "lat": 40.422778,
+  "lng": -3.708806,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0425
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0381
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0508
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 32.5
+   }
+  ]
+ },
+ {
+  "id": 88,
+  "nombre": "Barco 1",
+  "direccion": "Calle Barco",
+  "lat": 40.421107,
+  "lng": -3.702918,
+  "tarifas": [
+   {
+    "desde": 2,
+    "hasta": 120,
+    "periodo": "minutos",
+    "precio": 0.06
+   },
+   {
+    "desde": 121,
+    "hasta": 240,
+    "periodo": "minutos",
+    "precio": 0.05
+   },
+   {
+    "desde": 241,
+    "hasta": 600,
+    "periodo": "minutos",
+    "precio": 0.04
+   },
+   {
+    "desde": 601,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 27.0
+   }
+  ]
+ },
+ {
+  "id": 89,
+  "nombre": "Gravina 21",
+  "direccion": "Calle Gravina",
+  "lat": 40.422704,
+  "lng": -3.696436,
+  "tarifas": [
+   {
+    "desde": 2,
+    "hasta": 120,
+    "periodo": "minutos",
+    "precio": 0.06
+   },
+   {
+    "desde": 121,
+    "hasta": 240,
+    "periodo": "minutos",
+    "precio": 0.05
+   },
+   {
+    "desde": 241,
+    "hasta": 600,
+    "periodo": "minutos",
+    "precio": 0.045
+   },
+   {
+    "desde": 601,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 29.0
+   }
+  ]
+ },
+ {
+  "id": 90,
+  "nombre": "Mercado de la Cebada",
+  "direccion": "Plaza de la Cebada s/n Entrada de vehículos C/Toledo 77",
+  "lat": 40.41049,
+  "lng": -3.709082,
+  "tarifas": []
+ },
+ {
+  "id": 91,
+  "nombre": "El Corte Inglés Callao",
+  "direccion": "Plaza de Callao",
+  "lat": 40.4197702,
+  "lng": -3.7055168,
+  "tarifas": []
+ },
+ {
+  "id": 92,
+  "nombre": "El Corte Inglés Preciados",
+  "direccion": "Calle Preciados",
+  "lat": 40.4182355,
+  "lng": -3.7048936,
+  "tarifas": [
+   {
+    "desde": 1,
+    "hasta": 721,
+    "periodo": "minutos",
+    "precio": 66.0
+   }
+  ]
+ },
+ {
+  "id": 93,
+  "nombre": "Escuelas de San Antón",
+  "direccion": "SANTA BRIGIDA",
+  "lat": 40.424419,
+  "lng": -3.699445,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 450,
+    "periodo": "minutos",
+    "precio": 0.055
+   },
+   {
+    "desde": 451,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 24.75
+   }
+  ]
+ },
+ {
+  "id": 94,
+  "nombre": "Mercado San Antón",
+  "direccion": "LIBERTAD",
+  "lat": 40.421693,
+  "lng": -3.697468,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 600,
+    "periodo": "minutos",
+    "precio": 0.05
+   }
+  ]
+ },
+ {
+  "id": 95,
+  "nombre": "Alcala - Sevilla",
+  "direccion": "CALLE DE ALCALÁ",
+  "lat": 40.418258,
+  "lng": -3.698411,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0427
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0383
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.051
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 32.6
+   }
+  ]
+ },
+ {
+  "id": 96,
+  "nombre": "Piamonte",
+  "direccion": "PIAMONTE",
+  "lat": 40.42305,
+  "lng": -3.694675,
+  "tarifas": [
+   {
+    "desde": 2,
+    "hasta": 541,
+    "periodo": "minutos",
+    "precio": 0.05
+   }
+  ]
+ },
+ {
+  "id": 97,
+  "nombre": "Vot",
+  "direccion": "Ventosa",
+  "lat": 40.408671,
+  "lng": -3.714779,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 600,
+    "periodo": "minutos",
+    "precio": 0.0567
+   }
+  ]
+ },
+ {
+  "id": 98,
+  "nombre": "Isabel la Católica",
+  "direccion": "Calle de Isabel la Católica",
+  "lat": 40.421829,
+  "lng": -3.709122,
+  "tarifas": [
+   {
+    "desde": 1,
+    "hasta": 482,
+    "periodo": "minutos",
+    "precio": 0.056
+   },
+   {
+    "desde": 482,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 27.0
+   }
+  ]
+ },
+ {
+  "id": 99,
+  "nombre": "Olavide",
+  "direccion": "Pl. Olavide",
+  "lat": 40.431717,
+  "lng": -3.700565,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 32.0
+   },
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0
+   }
+  ]
+ },
+ {
+  "id": 100,
+  "nombre": "Fuencarral",
+  "direccion": "Cl. Fuencarral",
+  "lat": 40.43009,
+  "lng": -3.702953,
+  "tarifas": []
+ },
+ {
+  "id": 101,
+  "nombre": "Santo Domingo",
+  "direccion": "Plaza Santo Domingo",
+  "lat": 40.420471377,
+  "lng": -3.708230879,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.044
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0369
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0526
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 33.65
+   }
+  ]
+ },
+ {
+  "id": 102,
+  "nombre": "Pitis",
+  "direccion": "Calle Gloria Fuertes",
+  "lat": 40.495468,
+  "lng": -3.725125,
+  "tarifas": []
+ },
+ {
+  "id": 103,
+  "nombre": "FuenteMora",
+  "direccion": "Calle Dulce Chacon",
+  "lat": 40.484881,
+  "lng": -3.666177,
+  "tarifas": [
+   {
+    "desde": 0,
+    "hasta": 30,
+    "periodo": "minutos",
+    "precio": 0.0
+   },
+   {
+    "desde": 31,
+    "hasta": 90,
+    "periodo": "minutos",
+    "precio": 0.0
+   },
+   {
+    "desde": 91,
+    "hasta": 660,
+    "periodo": "minutos",
+    "precio": 0.0
+   },
+   {
+    "desde": 661,
+    "hasta": 1440,
+    "periodo": "minutos",
+    "precio": 10.0
+   }
+  ]
+ }
+]

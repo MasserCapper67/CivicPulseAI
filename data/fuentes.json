@@ -1,0 +1,17 @@
+{
+  "aparcamientos": {
+    "url": "https://servayto.madrid.es/MTPAR_WSINFO/InfoParking",
+    "fecha_fichero": "2026-11-20",
+    "descargado": "2026-11-20"
+  },
+  "estaciones/Metro": {
+    "url": "https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/M4_Red/FeatureServer/0/query?where=1%3D1&outFields=DENOMINACION,LINEAS,CORONATARIFARIA&outSR=4326&f=geojson",
+    "fecha_fichero": null,
+    "descargado": "2026-11-20"
+  },
+  "estaciones/Cercanías": {
+    "url": "https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/M5_Red/FeatureServer/0/query?where=1%3D1&outFields=DENOMINACION,LINEAS,CORONATARIFARIA&outSR=4326&f=geojson",
+    "fecha_fichero": null,
+    "descargado": "2026-11-20"
+  }
+}

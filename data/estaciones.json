@@ -1,0 +1,3646 @@
+[
+ {
+  "nombre": "Arroyofresno",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4908982656654,
+  "lng": -3.72603540068917
+ },
+ {
+  "nombre": "Rivas Urbanizaciones",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "B1",
+  "lat": 40.3667715025775,
+  "lng": -3.54727580674555
+ },
+ {
+  "nombre": "Noviciado",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L3",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4248422335784,
+  "lng": -3.70741904261363
+ },
+ {
+  "nombre": "Lago",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4164141109915,
+  "lng": -3.73563105937362
+ },
+ {
+  "nombre": "Batan",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4078602084024,
+  "lng": -3.75310993717595
+ },
+ {
+  "nombre": "Sol",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L2",
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.416876060894,
+  "lng": -3.70326164857528
+ },
+ {
+  "nombre": "Nuevos Ministerios",
+  "modo": "Metro",
+  "lineas": [
+   "L6",
+   "L8",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4466212151825,
+  "lng": -3.69240645851146
+ },
+ {
+  "nombre": "Estrella",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4114722192065,
+  "lng": -3.66178527076064
+ },
+ {
+  "nombre": "Lista",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4291685202558,
+  "lng": -3.67540982227869
+ },
+ {
+  "nombre": "La Poveda",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "B3",
+  "lat": 40.3190157307928,
+  "lng": -3.47744735058845
+ },
+ {
+  "nombre": "Empalme",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.3905725578316,
+  "lng": -3.76534787557234
+ },
+ {
+  "nombre": "Manoteras",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4768742266936,
+  "lng": -3.66289547589112
+ },
+ {
+  "nombre": "San Fermin-orcasur",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.3699909305509,
+  "lng": -3.6941764145037
+ },
+ {
+  "nombre": "Congosto",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3723823703667,
+  "lng": -3.61884135012454
+ },
+ {
+  "nombre": "Ciudad de los Angeles",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.359585428137,
+  "lng": -3.69362644417066
+ },
+ {
+  "nombre": "San Cristobal",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.3415419360096,
+  "lng": -3.69318029918632
+ },
+ {
+  "nombre": "Puerta del Sur",
+  "modo": "Metro",
+  "lineas": [
+   "L10",
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3454308655006,
+  "lng": -3.81248917974568
+ },
+ {
+  "nombre": "Coslada Central",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "B1",
+  "lat": 40.4237362059777,
+  "lng": -3.56119234949966
+ },
+ {
+  "nombre": "Garcia Noblejas",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4284231905451,
+  "lng": -3.63329946572732
+ },
+ {
+  "nombre": "Barrio de la Concepcion",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4390993999931,
+  "lng": -3.65200400129475
+ },
+ {
+  "nombre": "Anton Martin",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.41246356569,
+  "lng": -3.69937296334489
+ },
+ {
+  "nombre": "Gregorio Marañon",
+  "modo": "Metro",
+  "lineas": [
+   "L7",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.438250994429,
+  "lng": -3.69148286211901
+ },
+ {
+  "nombre": "Alonso Cano",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4383753761104,
+  "lng": -3.69924564323726
+ },
+ {
+  "nombre": "Francos Rodriguez",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4564818207783,
+  "lng": -3.7123866721983
+ },
+ {
+  "nombre": "Antonio Machado",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4702177203907,
+  "lng": -3.71769485524122
+ },
+ {
+  "nombre": "Arganda del Rey",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "B3",
+  "lat": 40.303669277437,
+  "lng": -3.44751896078065
+ },
+ {
+  "nombre": "Peñagrande",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4759235202497,
+  "lng": -3.71582415791248
+ },
+ {
+  "nombre": "Herrera Oria",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.484662780153,
+  "lng": -3.70751021303079
+ },
+ {
+  "nombre": "Barrio del Pilar",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4768890688056,
+  "lng": -3.70316450384176
+ },
+ {
+  "nombre": "Cuatro Vientos",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.3777068887697,
+  "lng": -3.79151519987357
+ },
+ {
+  "nombre": "Concha Espina",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4514484326224,
+  "lng": -3.67738012287591
+ },
+ {
+  "nombre": "Ventilla",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4694353769873,
+  "lng": -3.69588332976518
+ },
+ {
+  "nombre": "Duque de Pastrana",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4676258515088,
+  "lng": -3.6791705524779
+ },
+ {
+  "nombre": "Pio Xii",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4630027605113,
+  "lng": -3.67579015001895
+ },
+ {
+  "nombre": "Argüelles",
+  "modo": "Metro",
+  "lineas": [
+   "L3",
+   "L4",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4306609302246,
+  "lng": -3.71596265109483
+ },
+ {
+  "nombre": "Mar de Cristal",
+  "modo": "Metro",
+  "lineas": [
+   "L4",
+   "L8"
+  ],
+  "corona": "A",
+  "lat": 40.4693837871887,
+  "lng": -3.63832022322047
+ },
+ {
+  "nombre": "Hospital del Henares",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "B1",
+  "lat": 40.4176100182185,
+  "lng": -3.53453497209821
+ },
+ {
+  "nombre": "Callao",
+  "modo": "Metro",
+  "lineas": [
+   "L3",
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4201364950851,
+  "lng": -3.70566123684341
+ },
+ {
+  "nombre": "San Bernardo",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4300127626608,
+  "lng": -3.70556993325102
+ },
+ {
+  "nombre": "Estrecho",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4542880258282,
+  "lng": -3.70302295994985
+ },
+ {
+  "nombre": "Manuela Malasaña",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.3090300558365,
+  "lng": -3.86402119722615
+ },
+ {
+  "nombre": "Opera",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L5",
+   "LR"
+  ],
+  "corona": "A",
+  "lat": 40.4180933419941,
+  "lng": -3.70934960270523
+ },
+ {
+  "nombre": "Plaza Eliptica",
+  "modo": "Metro",
+  "lineas": [
+   "L6",
+   "L11"
+  ],
+  "corona": "A",
+  "lat": 40.3846000554076,
+  "lng": -3.71837055781195
+ },
+ {
+  "nombre": "Aeropuerto T1-t2-t3",
+  "modo": "Metro",
+  "lineas": [
+   "L8"
+  ],
+  "corona": "A",
+  "lat": 40.4686442368363,
+  "lng": -3.5695382559432
+ },
+ {
+  "nombre": "Avenida de America",
+  "modo": "Metro",
+  "lineas": [
+   "L4",
+   "L6",
+   "L7",
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4380325773816,
+  "lng": -3.67663955532626
+ },
+ {
+  "nombre": "Manuel Becerra",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4279041738074,
+  "lng": -3.66925820304973
+ },
+ {
+  "nombre": "Cuatro Caminos",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L2",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.446973952783,
+  "lng": -3.70397477197826
+ },
+ {
+  "nombre": "Colonia Jardin",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.3969754264342,
+  "lng": -3.77461625619616
+ },
+ {
+  "nombre": "Hortaleza",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.475371717959,
+  "lng": -3.65257261134101
+ },
+ {
+  "nombre": "Rivas Vaciamadrid",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "B1",
+  "lat": 40.3283709218929,
+  "lng": -3.52059752095372
+ },
+ {
+  "nombre": "Alvarado",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4503319759943,
+  "lng": -3.70331420927578
+ },
+ {
+  "nombre": "Plaza de España",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L3",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4234160279581,
+  "lng": -3.71119703758009
+ },
+ {
+  "nombre": "Ventura Rodriguez",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.4270873644311,
+  "lng": -3.71341309670545
+ },
+ {
+  "nombre": "Las Tablas",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.5083301210639,
+  "lng": -3.66944258328346
+ },
+ {
+  "nombre": "Tres Olivos",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.501204627482,
+  "lng": -3.69520245046674
+ },
+ {
+  "nombre": "Marques de la Valdavia",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.5410235621335,
+  "lng": -3.63738494117669
+ },
+ {
+  "nombre": "Baunatal",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.5544230386453,
+  "lng": -3.63512570203918
+ },
+ {
+  "nombre": "Buenos Aires",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3915628772158,
+  "lng": -3.6539061229837
+ },
+ {
+  "nombre": "Puente de Vallecas",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3981921510029,
+  "lng": -3.66905899947859
+ },
+ {
+  "nombre": "Pavones",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4005115495727,
+  "lng": -3.63512255629341
+ },
+ {
+  "nombre": "Villaverde Alto",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.3412286568915,
+  "lng": -3.71199027086867
+ },
+ {
+  "nombre": "Estacion del Arte",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4088515983755,
+  "lng": -3.69248727105058
+ },
+ {
+  "nombre": "Atocha",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4065868145425,
+  "lng": -3.68937811076585
+ },
+ {
+  "nombre": "Alonso Martinez",
+  "modo": "Metro",
+  "lineas": [
+   "L4",
+   "L5",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4277201133387,
+  "lng": -3.69593869523326
+ },
+ {
+  "nombre": "Tetuan",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4605518826648,
+  "lng": -3.69824989397233
+ },
+ {
+  "nombre": "La Gavia",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3701916631975,
+  "lng": -3.61346348307526
+ },
+ {
+  "nombre": "Colon",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4254191821374,
+  "lng": -3.69100739257143
+ },
+ {
+  "nombre": "Sevilla",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4180507481241,
+  "lng": -3.69925113804034
+ },
+ {
+  "nombre": "Goya",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4245483896706,
+  "lng": -3.67591017618596
+ },
+ {
+  "nombre": "Principe de Vergara",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4229448617607,
+  "lng": -3.68012268104369
+ },
+ {
+  "nombre": "Retiro",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4203067175233,
+  "lng": -3.68624471917784
+ },
+ {
+  "nombre": "Banco de España",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4192197861148,
+  "lng": -3.69496510558138
+ },
+ {
+  "nombre": "Santo Domingo",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4213154081332,
+  "lng": -3.70795527665699
+ },
+ {
+  "nombre": "San Blas",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4279919067674,
+  "lng": -3.61546907625776
+ },
+ {
+  "nombre": "Simancas",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4279923730252,
+  "lng": -3.62572167294121
+ },
+ {
+  "nombre": "Pinar de Chamartin",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.480139978151,
+  "lng": -3.66680448144827
+ },
+ {
+  "nombre": "Estadio Metropolitano",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4333959405993,
+  "lng": -3.60016793593902
+ },
+ {
+  "nombre": "Aeropuerto T-4",
+  "modo": "Metro",
+  "lineas": [
+   "L8"
+  ],
+  "corona": "A",
+  "lat": 40.491766772326,
+  "lng": -3.59324559721343
+ },
+ {
+  "nombre": "Rivas Futura",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "B1",
+  "lat": 40.3413421540536,
+  "lng": -3.52478901227188
+ },
+ {
+  "nombre": "Alameda de Osuna",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4577886285205,
+  "lng": -3.58752092904349
+ },
+ {
+  "nombre": "Hospital 12 de Octubre",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.375031361291,
+  "lng": -3.69585469244456
+ },
+ {
+  "nombre": "Almendrales",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.384093527174,
+  "lng": -3.69788139765522
+ },
+ {
+  "nombre": "Vicente Aleixandre",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4464363993485,
+  "lng": -3.71942671196889
+ },
+ {
+  "nombre": "Puerta del Angel",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4138988943963,
+  "lng": -3.72724045181543
+ },
+ {
+  "nombre": "Alto de Extremadura",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4099260169851,
+  "lng": -3.73893618157226
+ },
+ {
+  "nombre": "Tirso de Molina",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4123480941102,
+  "lng": -3.70465526879971
+ },
+ {
+  "nombre": "Lavapies",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.4085109428559,
+  "lng": -3.70090412320048
+ },
+ {
+  "nombre": "Getafe Central",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3099279090417,
+  "lng": -3.734025028929
+ },
+ {
+  "nombre": "Rios Rosas",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4419753563559,
+  "lng": -3.70132848117729
+ },
+ {
+  "nombre": "Tribunal",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4261853955902,
+  "lng": -3.70109984950459
+ },
+ {
+  "nombre": "Campamento",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.3948077574021,
+  "lng": -3.76812813678741
+ },
+ {
+  "nombre": "Carpetana",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.3927018994635,
+  "lng": -3.74099367671356
+ },
+ {
+  "nombre": "Opañel",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.3869044042556,
+  "lng": -3.72313362116361
+ },
+ {
+  "nombre": "Usera",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.3870966932697,
+  "lng": -3.70689564278932
+ },
+ {
+  "nombre": "Conde de Casal",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4069679504754,
+  "lng": -3.67040806723398
+ },
+ {
+  "nombre": "O'donnell",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4228884246446,
+  "lng": -3.66859514629195
+ },
+ {
+  "nombre": "Barajas",
+  "modo": "Metro",
+  "lineas": [
+   "L8"
+  ],
+  "corona": "A",
+  "lat": 40.4757741638309,
+  "lng": -3.58252790979637
+ },
+ {
+  "nombre": "Pacifico",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.402071738556,
+  "lng": -3.67385603841189
+ },
+ {
+  "nombre": "El Bercial",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3290723674829,
+  "lng": -3.72963318048934
+ },
+ {
+  "nombre": "Hospital Severo Ochoa",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3217702700883,
+  "lng": -3.76797304730462
+ },
+ {
+  "nombre": "Serrano",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.425432159419,
+  "lng": -3.68663043638334
+ },
+ {
+  "nombre": "Velazquez",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4250325508648,
+  "lng": -3.6829181480862
+ },
+ {
+  "nombre": "Diego de Leon",
+  "modo": "Metro",
+  "lineas": [
+   "L4",
+   "L5",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4346794643927,
+  "lng": -3.67495273007717
+ },
+ {
+  "nombre": "Montecarmelo",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.505252159111,
+  "lng": -3.69575069505638
+ },
+ {
+  "nombre": "Prosperidad",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4441889741445,
+  "lng": -3.67481890299206
+ },
+ {
+  "nombre": "Alfonso Xiii",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.448248388161,
+  "lng": -3.66790615299561
+ },
+ {
+  "nombre": "Avenida de la Paz",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4535426348993,
+  "lng": -3.66118199968261
+ },
+ {
+  "nombre": "Arturo Soria",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4558324918715,
+  "lng": -3.65618121809782
+ },
+ {
+  "nombre": "Esperanza",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4594472971918,
+  "lng": -3.64581718003963
+ },
+ {
+  "nombre": "Canillas",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4638105369802,
+  "lng": -3.63559546398109
+ },
+ {
+  "nombre": "San Lorenzo",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4744707395869,
+  "lng": -3.6395772765646
+ },
+ {
+  "nombre": "Parque de Santa Maria",
+  "modo": "Metro",
+  "lineas": [
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4771142938967,
+  "lng": -3.64524200216563
+ },
+ {
+  "nombre": "Canillejas",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4494208443657,
+  "lng": -3.60816032312032
+ },
+ {
+  "nombre": "Torre Arias",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4437432964146,
+  "lng": -3.61699470593882
+ },
+ {
+  "nombre": "Suanzes",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4408512430777,
+  "lng": -3.62683974417714
+ },
+ {
+  "nombre": "Ciudad Lineal",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4380484084201,
+  "lng": -3.6381575883455
+ },
+ {
+  "nombre": "Quintana",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4335849416495,
+  "lng": -3.64736224209832
+ },
+ {
+  "nombre": "El Carmen",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4318932920946,
+  "lng": -3.65757254725966
+ },
+ {
+  "nombre": "Nuñez de Balboa",
+  "modo": "Metro",
+  "lineas": [
+   "L5",
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4327806080438,
+  "lng": -3.6825799144836
+ },
+ {
+  "nombre": "Ruben Dario",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4331579372096,
+  "lng": -3.68954159857549
+ },
+ {
+  "nombre": "Bilbao",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L4"
+  ],
+  "corona": "A",
+  "lat": 40.4290560241036,
+  "lng": -3.70218206577842
+ },
+ {
+  "nombre": "La Latina",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4112803286869,
+  "lng": -3.70816086851901
+ },
+ {
+  "nombre": "Marques de Vadillo",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.3973562903245,
+  "lng": -3.71596007651405
+ },
+ {
+  "nombre": "Urgel",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.3933517684562,
+  "lng": -3.72360482429366
+ },
+ {
+  "nombre": "Vista Alegre",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.3888470257572,
+  "lng": -3.73982455000658
+ },
+ {
+  "nombre": "Carabanchel",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.387827019968,
+  "lng": -3.74487052104138
+ },
+ {
+  "nombre": "Paco de Lucia",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4997079849682,
+  "lng": -3.70912735227902
+ },
+ {
+  "nombre": "Pueblo Nuevo",
+  "modo": "Metro",
+  "lineas": [
+   "L5",
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4356585154991,
+  "lng": -3.64282293725217
+ },
+ {
+  "nombre": "Ciudad Universitaria",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4435646769462,
+  "lng": -3.72678481009787
+ },
+ {
+  "nombre": "Guzman el Bueno",
+  "modo": "Metro",
+  "lineas": [
+   "L6",
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4463660791437,
+  "lng": -3.71229403706057
+ },
+ {
+  "nombre": "Vinateros",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4102399277996,
+  "lng": -3.65273420710476
+ },
+ {
+  "nombre": "Artilleros",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4052238336675,
+  "lng": -3.64181233777473
+ },
+ {
+  "nombre": "Nueva Numancia",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3955381621572,
+  "lng": -3.66414170148567
+ },
+ {
+  "nombre": "San Cipriano",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4038117574594,
+  "lng": -3.6023940495699
+ },
+ {
+  "nombre": "Puerta de Toledo",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4070357544619,
+  "lng": -3.71104645076763
+ },
+ {
+  "nombre": "Arganzuela-planetario",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.3931027049207,
+  "lng": -3.68864034744709
+ },
+ {
+  "nombre": "Carabanchel Alto",
+  "modo": "Metro",
+  "lineas": [
+   "L11"
+  ],
+  "corona": "A",
+  "lat": 40.3720024216854,
+  "lng": -3.75190634426727
+ },
+ {
+  "nombre": "Cartagena",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4393374952451,
+  "lng": -3.67215160132978
+ },
+ {
+  "nombre": "Parque de las Avenidas",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4394476023403,
+  "lng": -3.66297058086922
+ },
+ {
+  "nombre": "Chueca",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4229331780798,
+  "lng": -3.69761659244378
+ },
+ {
+  "nombre": "Islas Filipinas",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4390682066327,
+  "lng": -3.71372864479935
+ },
+ {
+  "nombre": "Cruz del Rayo",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4442658811033,
+  "lng": -3.67821410967105
+ },
+ {
+  "nombre": "Menendez Pelayo",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4044505432373,
+  "lng": -3.68097585591469
+ },
+ {
+  "nombre": "Ibiza",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4183912105898,
+  "lng": -3.67857510552646
+ },
+ {
+  "nombre": "Ascao",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4302055301581,
+  "lng": -3.64105571498423
+ },
+ {
+  "nombre": "Gran Via",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4199866177357,
+  "lng": -3.70180393013566
+ },
+ {
+  "nombre": "La Rambla",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "B1",
+  "lat": 40.4251434841391,
+  "lng": -3.54792383333825
+ },
+ {
+  "nombre": "Barrio del Puerto",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "B1",
+  "lat": 40.422496870096,
+  "lng": -3.56918847026566
+ },
+ {
+  "nombre": "San Fernando",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "B1",
+  "lat": 40.4244122496606,
+  "lng": -3.53541452255171
+ },
+ {
+  "nombre": "Jarama",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "B1",
+  "lat": 40.422954804338,
+  "lng": -3.52549376489887
+ },
+ {
+  "nombre": "Henares",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "B1",
+  "lat": 40.4177694852412,
+  "lng": -3.52717835279042
+ },
+ {
+  "nombre": "Las Suertes",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3632280247659,
+  "lng": -3.59953268972882
+ },
+ {
+  "nombre": "Valdecarros",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3600681331852,
+  "lng": -3.59316035499877
+ },
+ {
+  "nombre": "Iglesia",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4349234782849,
+  "lng": -3.69897999234847
+ },
+ {
+  "nombre": "Sierra de Guadalupe",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3821642503006,
+  "lng": -3.62471747014878
+ },
+ {
+  "nombre": "Bambu",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4768153611651,
+  "lng": -3.67636744147116
+ },
+ {
+  "nombre": "Canal",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4387025079451,
+  "lng": -3.70488898865674
+ },
+ {
+  "nombre": "Ronda de la Comunicacion",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.5155346471774,
+  "lng": -3.66276510350324
+ },
+ {
+  "nombre": "Embajadores",
+  "modo": "Metro",
+  "lineas": [
+   "L3",
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4051272711625,
+  "lng": -3.70268049977228
+ },
+ {
+  "nombre": "Moncloa",
+  "modo": "Metro",
+  "lineas": [
+   "L3",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4349663108718,
+  "lng": -3.71945001068823
+ },
+ {
+  "nombre": "Aluche",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.3856286195639,
+  "lng": -3.76080381070444
+ },
+ {
+  "nombre": "Acacias",
+  "modo": "Metro",
+  "lineas": [
+   "L3",
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4038716437299,
+  "lng": -3.70664108607519
+ },
+ {
+  "nombre": "Legazpi",
+  "modo": "Metro",
+  "lineas": [
+   "L3",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.3911577579403,
+  "lng": -3.69505136534669
+ },
+ {
+  "nombre": "Principe Pio",
+  "modo": "Metro",
+  "lineas": [
+   "L6",
+   "L10",
+   "LR"
+  ],
+  "corona": "A",
+  "lat": 40.4210688443836,
+  "lng": -3.72032355914226
+ },
+ {
+  "nombre": "Fuencarral",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4950851624077,
+  "lng": -3.69283123100657
+ },
+ {
+  "nombre": "Cuzco",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4584214192787,
+  "lng": -3.6898507512138
+ },
+ {
+  "nombre": "Santiago Bernabeu",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4515891795258,
+  "lng": -3.69037934673485
+ },
+ {
+  "nombre": "Valdeacederas",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.4644241785987,
+  "lng": -3.69506203750875
+ },
+ {
+  "nombre": "Joaquin Vilumbrales",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.349848097734,
+  "lng": -3.80720128436728
+ },
+ {
+  "nombre": "Abrantes",
+  "modo": "Metro",
+  "lineas": [
+   "L11"
+  ],
+  "corona": "A",
+  "lat": 40.3808336147312,
+  "lng": -3.72790024912171
+ },
+ {
+  "nombre": "Pan Bendito",
+  "modo": "Metro",
+  "lineas": [
+   "L11"
+  ],
+  "corona": "A",
+  "lat": 40.3758686366567,
+  "lng": -3.73416885653047
+ },
+ {
+  "nombre": "Portazgo",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3926605600882,
+  "lng": -3.65867771418254
+ },
+ {
+  "nombre": "Parque Lisboa",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3496872815222,
+  "lng": -3.82119573255216
+ },
+ {
+  "nombre": "Parque Oeste",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3458943804137,
+  "lng": -3.84933861659997
+ },
+ {
+  "nombre": "Universidad Rey Juan Carlos",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.3351229765986,
+  "lng": -3.87217960642448
+ },
+ {
+  "nombre": "Pradillo",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.3216769647447,
+  "lng": -3.86488940297031
+ },
+ {
+  "nombre": "Laguna",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.3992296247106,
+  "lng": -3.74428871805663
+ },
+ {
+  "nombre": "Hospital de Mostoles",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.3165242816456,
+  "lng": -3.87471247771921
+ },
+ {
+  "nombre": "Conservatorio",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.2932438463166,
+  "lng": -3.74576104044338
+ },
+ {
+  "nombre": "Loranca",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.2968126640553,
+  "lng": -3.83768345712019
+ },
+ {
+  "nombre": "Hospital de Fuenlabrada",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.2857554858776,
+  "lng": -3.81641680868562
+ },
+ {
+  "nombre": "Parque Europa",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.2851756964955,
+  "lng": -3.80632299228354
+ },
+ {
+  "nombre": "Avenida de Guadalajara",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4223935838227,
+  "lng": -3.61206460968115
+ },
+ {
+  "nombre": "Las Rosas",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4237484310442,
+  "lng": -3.60330559556744
+ },
+ {
+  "nombre": "Mendez Alvaro",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.395375599391,
+  "lng": -3.67814150708304
+ },
+ {
+  "nombre": "Oporto",
+  "modo": "Metro",
+  "lineas": [
+   "L5",
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.3884647630932,
+  "lng": -3.73132331241503
+ },
+ {
+  "nombre": "Palos de la Frontera",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.4030722839783,
+  "lng": -3.69423268407983
+ },
+ {
+  "nombre": "Quevedo",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4332173151576,
+  "lng": -3.70433286125026
+ },
+ {
+  "nombre": "Parque de los Estados",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.2868358005326,
+  "lng": -3.7869740434575
+ },
+ {
+  "nombre": "Arroyo Culebro",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.2887417691494,
+  "lng": -3.75682335666738
+ },
+ {
+  "nombre": "Alonso de Mendoza",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3008139619265,
+  "lng": -3.73663697171246
+ },
+ {
+  "nombre": "Juan de la Cierva",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3118023648563,
+  "lng": -3.72224012270444
+ },
+ {
+  "nombre": "Los Espartales",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3242270149373,
+  "lng": -3.7181978645244
+ },
+ {
+  "nombre": "Alto del Arenal",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3897710121487,
+  "lng": -3.64521654904283
+ },
+ {
+  "nombre": "El Carrascal",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3366382437775,
+  "lng": -3.74018488291484
+ },
+ {
+  "nombre": "Julian Besteiro",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3347491078306,
+  "lng": -3.75265895099191
+ },
+ {
+  "nombre": "Delicias",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.3999047785544,
+  "lng": -3.69419961603634
+ },
+ {
+  "nombre": "Casa del Reloj",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3266027213842,
+  "lng": -3.75942499130863
+ },
+ {
+  "nombre": "San Nicasio",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.336163147896,
+  "lng": -3.77587362530074
+ },
+ {
+  "nombre": "Miguel Hernandez",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3873157470567,
+  "lng": -3.63950990063064
+ },
+ {
+  "nombre": "El Capricho",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4534683327049,
+  "lng": -3.59401165769579
+ },
+ {
+  "nombre": "San Francisco",
+  "modo": "Metro",
+  "lineas": [
+   "L11"
+  ],
+  "corona": "A",
+  "lat": 40.3735988410558,
+  "lng": -3.73910292919002
+ },
+ {
+  "nombre": "Aviacion Española",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.3836394376112,
+  "lng": -3.78392294643938
+ },
+ {
+  "nombre": "Pinar del Rey",
+  "modo": "Metro",
+  "lineas": [
+   "L8"
+  ],
+  "corona": "A",
+  "lat": 40.4680013620738,
+  "lng": -3.64866836052012
+ },
+ {
+  "nombre": "Villa de Vallecas",
+  "modo": "Metro",
+  "lineas": [
+   "L1"
+  ],
+  "corona": "A",
+  "lat": 40.3795986114191,
+  "lng": -3.62129648488235
+ },
+ {
+  "nombre": "La Elipa",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4266172349772,
+  "lng": -3.65051891390286
+ },
+ {
+  "nombre": "La Peseta",
+  "modo": "Metro",
+  "lineas": [
+   "L11"
+  ],
+  "corona": "A",
+  "lat": 40.3642240118116,
+  "lng": -3.75690271058812
+ },
+ {
+  "nombre": "Lucero",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.4050996506522,
+  "lng": -3.74533695945151
+ },
+ {
+  "nombre": "Valdebernardo",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.400047129618,
+  "lng": -3.62155915980853
+ },
+ {
+  "nombre": "Lacoma",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4850150260736,
+  "lng": -3.72304554155022
+ },
+ {
+  "nombre": "Avenida de la Ilustracion",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4801026115457,
+  "lng": -3.71839825221866
+ },
+ {
+  "nombre": "Valdezarza",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.464823532836,
+  "lng": -3.71597212685142
+ },
+ {
+  "nombre": "Colombia",
+  "modo": "Metro",
+  "lineas": [
+   "L8",
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4574897504124,
+  "lng": -3.67693905940289
+ },
+ {
+  "nombre": "Las Musas",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4329881279398,
+  "lng": -3.60787951427632
+ },
+ {
+  "nombre": "Reyes Catolicos",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.5503748336655,
+  "lng": -3.62339941044202
+ },
+ {
+  "nombre": "Manuel de Falla",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.5504799808972,
+  "lng": -3.64687944950569
+ },
+ {
+  "nombre": "La Moraleja",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.5319556473465,
+  "lng": -3.63555952271399
+ },
+ {
+  "nombre": "La Granja",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.5275996223624,
+  "lng": -3.65859208713804
+ },
+ {
+  "nombre": "Hospital Infanta Sofia",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "B1",
+  "lat": 40.5597694481961,
+  "lng": -3.61145473384219
+ },
+ {
+  "nombre": "Republica Argentina",
+  "modo": "Metro",
+  "lineas": [
+   "L6"
+  ],
+  "corona": "A",
+  "lat": 40.44379456449,
+  "lng": -3.68406186705705
+ },
+ {
+  "nombre": "Ventas",
+  "modo": "Metro",
+  "lineas": [
+   "L2",
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4308848031949,
+  "lng": -3.66360584172735
+ },
+ {
+  "nombre": "Plaza de Castilla",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L9",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4668960373106,
+  "lng": -3.68916958703584
+ },
+ {
+  "nombre": "Villaverde Bajo Cruce",
+  "modo": "Metro",
+  "lineas": [
+   "L3"
+  ],
+  "corona": "A",
+  "lat": 40.3508947639615,
+  "lng": -3.69264894181344
+ },
+ {
+  "nombre": "Puerta de Arganda",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4013157821612,
+  "lng": -3.59597530294796
+ },
+ {
+  "nombre": "Chamartin",
+  "modo": "Metro",
+  "lineas": [
+   "L1",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4721031246127,
+  "lng": -3.68259088054998
+ },
+ {
+  "nombre": "Begoña",
+  "modo": "Metro",
+  "lineas": [
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4804129321054,
+  "lng": -3.685849695579
+ },
+ {
+  "nombre": "Feria de Madrid",
+  "modo": "Metro",
+  "lineas": [
+   "L8"
+  ],
+  "corona": "A",
+  "lat": 40.4638931513133,
+  "lng": -3.61620468224152
+ },
+ {
+  "nombre": "Vicalvaro",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4042159164034,
+  "lng": -3.6088588260062
+ },
+ {
+  "nombre": "Fuenlabrada Central",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.2826757751405,
+  "lng": -3.79890690078202
+ },
+ {
+  "nombre": "Eugenia de Montijo",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.3843857971757,
+  "lng": -3.75121118478282
+ },
+ {
+  "nombre": "Alsacia",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4182926946444,
+  "lng": -3.62350600154867
+ },
+ {
+  "nombre": "Mirasierra",
+  "modo": "Metro",
+  "lineas": [
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4910977848675,
+  "lng": -3.71634448229921
+ },
+ {
+  "nombre": "La Fortuna",
+  "modo": "Metro",
+  "lineas": [
+   "L11"
+  ],
+  "corona": "B1",
+  "lat": 40.3579531289265,
+  "lng": -3.777825849896
+ },
+ {
+  "nombre": "La Almudena",
+  "modo": "Metro",
+  "lineas": [
+   "L2"
+  ],
+  "corona": "A",
+  "lat": 40.4236132906806,
+  "lng": -3.63914233036257
+ },
+ {
+  "nombre": "Sainz de Baranda",
+  "modo": "Metro",
+  "lineas": [
+   "L6",
+   "L9"
+  ],
+  "corona": "A",
+  "lat": 40.4150284968071,
+  "lng": -3.66951374370264
+ },
+ {
+  "nombre": "Piramides",
+  "modo": "Metro",
+  "lineas": [
+   "L5"
+  ],
+  "corona": "A",
+  "lat": 40.4025981654589,
+  "lng": -3.71137712281232
+ },
+ {
+  "nombre": "Pitis",
+  "modo": "Metro",
+  "lineas": [
+   "L7"
+  ],
+  "corona": "A",
+  "lat": 40.4951058423757,
+  "lng": -3.72589123290808
+ },
+ {
+  "nombre": "Leganes Central",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3289852309455,
+  "lng": -3.77153699668843
+ },
+ {
+  "nombre": "Alcorcon Central",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3500843402794,
+  "lng": -3.83177862063198
+ },
+ {
+  "nombre": "Mostoles Central",
+  "modo": "Metro",
+  "lineas": [
+   "L12"
+  ],
+  "corona": "B2",
+  "lat": 40.3285002183315,
+  "lng": -3.86354217563866
+ },
+ {
+  "nombre": "El Casar",
+  "modo": "Metro",
+  "lineas": [
+   "L3",
+   "L12"
+  ],
+  "corona": "B1",
+  "lat": 40.3186231578854,
+  "lng": -3.70985404230006
+ },
+ {
+  "nombre": "Casa de Campo",
+  "modo": "Metro",
+  "lineas": [
+   "L5",
+   "L10"
+  ],
+  "corona": "A",
+  "lat": 40.4032422708359,
+  "lng": -3.7610136676265
+ },
+ {
+  "nombre": "San Cristóbal Industrial",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "A",
+  "lat": 40.3319087269709,
+  "lng": -3.69871853110087
+ },
+ {
+  "nombre": "San Cristóbal de los Angeles",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "A",
+  "lat": 40.3423628474426,
+  "lng": -3.68384596290414
+ },
+ {
+  "nombre": "Valdelasfuentes",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.5474452767995,
+  "lng": -3.65433529516077
+ },
+ {
+  "nombre": "Universidad P. Comillas",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.5540609679743,
+  "lng": -3.68333993201117
+ },
+ {
+  "nombre": "Cantoblanco Universidad",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.5437838690789,
+  "lng": -3.70034407149193
+ },
+ {
+  "nombre": "Fuencarral",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "A",
+  "lat": 40.5015587871928,
+  "lng": -3.6823369858552
+ },
+ {
+  "nombre": "Zarzaquemada",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B1",
+  "lat": 40.3408543837162,
+  "lng": -3.74830343300632
+ },
+ {
+  "nombre": "Recoletos",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.4234090220186,
+  "lng": -3.69085775950282
+ },
+ {
+  "nombre": "Doce de Octubre",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3789556348457,
+  "lng": -3.69861351400181
+ },
+ {
+  "nombre": "Torrelodones",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B3",
+  "lat": 40.5745126029752,
+  "lng": -3.95653762779187
+ },
+ {
+  "nombre": "Alcalá de Henares Universidad",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B3",
+  "lat": 40.5053390295669,
+  "lng": -3.33541297813764
+ },
+ {
+  "nombre": "Puerto Navacerrada",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-9"
+  ],
+  "corona": "C2",
+  "lat": 40.7844094822926,
+  "lng": -4.00473471352976
+ },
+ {
+  "nombre": "Azuqueca",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "E1",
+  "lat": 40.5610271578961,
+  "lng": -3.26545621557629
+ },
+ {
+  "nombre": "Meco",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "C1",
+  "lat": 40.5346161020491,
+  "lng": -3.29865551437523
+ },
+ {
+  "nombre": "Majadahonda",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-7"
+  ],
+  "corona": "B2",
+  "lat": 40.4742781071392,
+  "lng": -3.84534271761289
+ },
+ {
+  "nombre": "Barrial-c.com.pozuelo, el",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-7"
+  ],
+  "corona": "B1",
+  "lat": 40.4653729743399,
+  "lng": -3.80773786655938
+ },
+ {
+  "nombre": "Matas, las",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B2",
+  "lat": 40.5525196829737,
+  "lng": -3.89683214632808
+ },
+ {
+  "nombre": "Pinar de las Rozas",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B2",
+  "lat": 40.5223001836185,
+  "lng": -3.88216208959213
+ },
+ {
+  "nombre": "Rozas, las",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-7"
+  ],
+  "corona": "B2",
+  "lat": 40.4942311770752,
+  "lng": -3.8681233570257
+ },
+ {
+  "nombre": "Garena, la",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B3",
+  "lat": 40.4804325116477,
+  "lng": -3.39316873878999
+ },
+ {
+  "nombre": "San Fernando",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B1",
+  "lat": 40.4426600661389,
+  "lng": -3.53384860980655
+ },
+ {
+  "nombre": "San José de Valderas",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B1",
+  "lat": 40.3565332866752,
+  "lng": -3.81588428698701
+ },
+ {
+  "nombre": "Puente Alcocer",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3502834143922,
+  "lng": -3.70516057452415
+ },
+ {
+  "nombre": "Pozo, el",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.375902051824,
+  "lng": -3.65622599439296
+ },
+ {
+  "nombre": "Vallecas",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.3822137769523,
+  "lng": -3.62455169826311
+ },
+ {
+  "nombre": "Nuevos Ministerios",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-2",
+   "C-3",
+   "C-4",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.4466215880167,
+  "lng": -3.69234406048768
+ },
+ {
+  "nombre": "Villaverde Alto",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4",
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3412266558049,
+  "lng": -3.71192794525494
+ },
+ {
+  "nombre": "Madrid Atocha Cercanías",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-2",
+   "C-3",
+   "C-4",
+   "C-5",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.4065900429143,
+  "lng": -3.6893018805662
+ },
+ {
+  "nombre": "Losa-navas de Riofrio, la",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.8566510723739,
+  "lng": -4.14116289095347
+ },
+ {
+  "nombre": "Navalperal",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.590651736651,
+  "lng": -4.40811850327122
+ },
+ {
+  "nombre": "Cercedilla",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8b",
+   "C-9"
+  ],
+  "corona": "C2",
+  "lat": 40.7375659739938,
+  "lng": -4.06590455200656
+ },
+ {
+  "nombre": "Orcasitas",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3669052286135,
+  "lng": -3.7044165807754
+ },
+ {
+  "nombre": "Humanes",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B3",
+  "lat": 40.2556458289228,
+  "lng": -3.82846516961472
+ },
+ {
+  "nombre": "Espinar, el",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.7408301144182,
+  "lng": -4.18952964924848
+ },
+ {
+  "nombre": "Serna, la",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B2",
+  "lat": 40.2967217765265,
+  "lng": -3.79247550216173
+ },
+ {
+  "nombre": "Getafe Sector 3",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.2882438369464,
+  "lng": -3.73734148685727
+ },
+ {
+  "nombre": "Margaritas-universidad, las",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.3230424328947,
+  "lng": -3.72737365567329
+ },
+ {
+  "nombre": "Villaverde Bajo",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3",
+   "C-4"
+  ],
+  "corona": "A",
+  "lat": 40.3526391825844,
+  "lng": -3.68398281299012
+ },
+ {
+  "nombre": "Villalba de Guadarrama",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B3",
+  "lat": 40.6263656783169,
+  "lng": -4.0080952537596
+ },
+ {
+  "nombre": "Ávila",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.6584031155691,
+  "lng": -4.66163998250145
+ },
+ {
+  "nombre": "Arcos de Jalón",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 41.1669608601584,
+  "lng": -2.24624210470786
+ },
+ {
+  "nombre": "Cotos",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-9"
+  ],
+  "corona": "C2",
+  "lat": 40.8222598992008,
+  "lng": -3.96452034029106
+ },
+ {
+  "nombre": "Segovia",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.9125986455604,
+  "lng": -4.14771685537438
+ },
+ {
+  "nombre": "Sigüenza",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 41.1010044050328,
+  "lng": -2.62954647037748
+ },
+ {
+  "nombre": "Toledo",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 39.8691292513393,
+  "lng": -3.99492181391197
+ },
+ {
+  "nombre": "Aeropuerto T4",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-1"
+  ],
+  "corona": "A",
+  "lat": 40.4917675252236,
+  "lng": -3.59333146148185
+ },
+ {
+  "nombre": "Medina del Campo",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 41.317328742187,
+  "lng": -4.9098826069616
+ },
+ {
+  "nombre": "Navas del Marqués, las",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.5892291612494,
+  "lng": -4.36147108272128
+ },
+ {
+  "nombre": "Arévalo",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 41.0481402186975,
+  "lng": -4.70239813131336
+ },
+ {
+  "nombre": "Pozuelo",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-7"
+  ],
+  "corona": "B1",
+  "lat": 40.4472685400139,
+  "lng": -3.80011939716674
+ },
+ {
+  "nombre": "Guadalajara",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "E1",
+  "lat": 40.644082624678,
+  "lng": -3.18239003887205
+ },
+ {
+  "nombre": "Colmenar Viejo",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B3",
+  "lat": 40.6449707961761,
+  "lng": -3.77573173157435
+ },
+ {
+  "nombre": "Tres Cantos",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B2",
+  "lat": 40.5984399405055,
+  "lng": -3.71564421122259
+ },
+ {
+  "nombre": "Goloso, el",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.5585725326678,
+  "lng": -3.71407093516335
+ },
+ {
+  "nombre": "Ramón y Cajal",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.4882411242276,
+  "lng": -3.69473363739967
+ },
+ {
+  "nombre": "Santa María de la Alameda",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8a"
+  ],
+  "corona": "C2",
+  "lat": 40.5689235750668,
+  "lng": -4.26933127175928
+ },
+ {
+  "nombre": "Robledo de Chavela",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8a"
+  ],
+  "corona": "C2",
+  "lat": 40.5207817854289,
+  "lng": -4.24671142202336
+ },
+ {
+  "nombre": "Zorreras, las",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8a"
+  ],
+  "corona": "C1",
+  "lat": 40.6094127746296,
+  "lng": -4.04605511709608
+ },
+ {
+  "nombre": "San Yago",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8a"
+  ],
+  "corona": "C1",
+  "lat": 40.6178650322728,
+  "lng": -4.03110744814683
+ },
+ {
+  "nombre": "Asamblea de Madrid-entrevías",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.3816714898358,
+  "lng": -3.66800400641146
+ },
+ {
+  "nombre": "Santa Eugenia",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.3869855749515,
+  "lng": -3.60906393170746
+ },
+ {
+  "nombre": "Alcalá de Henares",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B3",
+  "lat": 40.4890302757429,
+  "lng": -3.36633567031405
+ },
+ {
+  "nombre": "Torrejón de Ardoz",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B2",
+  "lat": 40.4546014889637,
+  "lng": -3.47981980744796
+ },
+ {
+  "nombre": "Aluche",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.38562662647,
+  "lng": -3.76074456147934
+ },
+ {
+  "nombre": "Embajadores",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.4051252294599,
+  "lng": -3.7026243551753
+ },
+ {
+  "nombre": "Parla",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B2",
+  "lat": 40.2407668404867,
+  "lng": -3.76936294092694
+ },
+ {
+  "nombre": "Príncipe Pío",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-7"
+  ],
+  "corona": "A",
+  "lat": 40.4210716166165,
+  "lng": -3.72026121054108
+ },
+ {
+  "nombre": "Méndez Álvaro",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3953783495887,
+  "lng": -3.67807918366819
+ },
+ {
+  "nombre": "Fuente de la Mora",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-1"
+  ],
+  "corona": "A",
+  "lat": 40.4847451678866,
+  "lng": -3.66282305192468
+ },
+ {
+  "nombre": "Ariza",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 41.3096104579267,
+  "lng": -2.05953873696869
+ },
+ {
+  "nombre": "Retamas, las",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B1",
+  "lat": 40.3418921382644,
+  "lng": -3.84242095761015
+ },
+ {
+  "nombre": "Zarzalejo",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8a"
+  ],
+  "corona": "C2",
+  "lat": 40.5387180198131,
+  "lng": -4.15816962170102
+ },
+ {
+  "nombre": "Collado Mediano",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8b"
+  ],
+  "corona": "C1",
+  "lat": 40.6927554208208,
+  "lng": -4.03587464330619
+ },
+ {
+  "nombre": "Molinos, los",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8b"
+  ],
+  "corona": "C2",
+  "lat": 40.7073440522745,
+  "lng": -4.06680924664732
+ },
+ {
+  "nombre": "Alpedrete",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8b"
+  ],
+  "corona": "C1",
+  "lat": 40.6581629513706,
+  "lng": -4.03505875103054
+ },
+ {
+  "nombre": "Negrales, los",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8b"
+  ],
+  "corona": "C1",
+  "lat": 40.6385765314888,
+  "lng": -4.02189442763978
+ },
+ {
+  "nombre": "Galapagar-la Navata",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B3",
+  "lat": 40.6001136095974,
+  "lng": -3.98184939124204
+ },
+ {
+  "nombre": "Guimorcondo",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.6490026876306,
+  "lng": -4.61499700593635
+ },
+ {
+  "nombre": "Maestra Justa Freire-polideportivo Aluche",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3836512502097,
+  "lng": -3.76856414867733
+ },
+ {
+  "nombre": "Escorial, el",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-8a"
+  ],
+  "corona": "C1",
+  "lat": 40.5852671523362,
+  "lng": -4.13233067695818
+ },
+ {
+  "nombre": "Parque Polvoranca",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B1",
+  "lat": 40.3125041024048,
+  "lng": -3.78334388400719
+ },
+ {
+  "nombre": "Móstoles el Soto",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B2",
+  "lat": 40.3308924503373,
+  "lng": -3.88233705603305
+ },
+ {
+  "nombre": "Sol",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3",
+   "C-4"
+  ],
+  "corona": "A",
+  "lat": 40.4168455100502,
+  "lng": -3.70309445993443
+ },
+ {
+  "nombre": "Casar, el",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "B1",
+  "lat": 40.3184661519122,
+  "lng": -3.70983541052046
+ },
+ {
+  "nombre": "Getafe Centro",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.3100956155042,
+  "lng": -3.73394177808755
+ },
+ {
+  "nombre": "Herradón-la Cañada",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.5992523119568,
+  "lng": -4.49504735613434
+ },
+ {
+  "nombre": "Madrid Chamartín-clara Campoamor",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-1",
+   "C-10",
+   "C-2",
+   "C-3",
+   "C-4",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.4721038240738,
+  "lng": -3.68247227950156
+ },
+ {
+  "nombre": "Vicálvaro",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.4013173443583,
+  "lng": -3.59592862848846
+ },
+ {
+  "nombre": "Otero-herreros",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 40.8009231288334,
+  "lng": -4.20354659054673
+ },
+ {
+  "nombre": "Cuatro Vientos",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3777060085738,
+  "lng": -3.79143477618509
+ },
+ {
+  "nombre": "Delicias",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10"
+  ],
+  "corona": "A",
+  "lat": 40.4003697353198,
+  "lng": -3.69276788285937
+ },
+ {
+  "nombre": "Pirámides",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10"
+  ],
+  "corona": "A",
+  "lat": 40.4025952660783,
+  "lng": -3.71134041072823
+ },
+ {
+  "nombre": "Aranjuez",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "C1",
+  "lat": 40.0348299422513,
+  "lng": -3.61830844212316
+ },
+ {
+  "nombre": "Ciempozuelos",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "B3",
+  "lat": 40.1590628771053,
+  "lng": -3.61002791377818
+ },
+ {
+  "nombre": "Valdemoro",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "B3",
+  "lat": 40.196042129028,
+  "lng": -3.66481585605174
+ },
+ {
+  "nombre": "Pinto",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "B2",
+  "lat": 40.2427904950031,
+  "lng": -3.70373755831516
+ },
+ {
+  "nombre": "Getafe Industrial",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-3"
+  ],
+  "corona": "B1",
+  "lat": 40.3054769300469,
+  "lng": -3.70769412799133
+ },
+ {
+  "nombre": "Laguna",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3991760104392,
+  "lng": -3.74422118931735
+ },
+ {
+  "nombre": "Pitis",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.4951037734193,
+  "lng": -3.72584125609992
+ },
+ {
+  "nombre": "Coslada",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B1",
+  "lat": 40.4237352848222,
+  "lng": -3.56113619805104
+ },
+ {
+  "nombre": "Leganes",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B1",
+  "lat": 40.3289856048277,
+  "lng": -3.77148094085261
+ },
+ {
+  "nombre": "Alcorcón",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B1",
+  "lat": 40.3500822936339,
+  "lng": -3.83173186292416
+ },
+ {
+  "nombre": "Móstoles",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B2",
+  "lat": 40.3285029748079,
+  "lng": -3.8634923772429
+ },
+ {
+  "nombre": "Águilas, las",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "A",
+  "lat": 40.3811881492476,
+  "lng": -3.78027315326551
+ },
+ {
+  "nombre": "Alcobendas-s.s. de los Reyes",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-4"
+  ],
+  "corona": "B1",
+  "lat": 40.5465679550208,
+  "lng": -3.63518676669724
+ },
+ {
+  "nombre": "Fuenlabrada",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-5"
+  ],
+  "corona": "B2",
+  "lat": 40.2826773322693,
+  "lng": -3.7988540076525
+ },
+ {
+  "nombre": "Aravaca",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-10",
+   "C-7"
+  ],
+  "corona": "A",
+  "lat": 40.448328064034,
+  "lng": -3.78585825590796
+ },
+ {
+  "nombre": "Valladolid",
+  "modo": "Cercanías",
+  "lineas": [],
+  "corona": null,
+  "lat": 41.6421673174672,
+  "lng": -4.72700493686286
+ },
+ {
+  "nombre": "Soto del Henares",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-2",
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "B2",
+  "lat": 40.4635279418343,
+  "lng": -3.44133944195429
+ },
+ {
+  "nombre": "Valdebebas",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-1"
+  ],
+  "corona": "A",
+  "lat": 40.482301536326,
+  "lng": -3.61642467813448
+ },
+ {
+  "nombre": "Mirasierra-paco de Lucía",
+  "modo": "Cercanías",
+  "lineas": [
+   "C-7",
+   "C-8a",
+   "C-8b"
+  ],
+  "corona": "A",
+  "lat": 40.49970527565,
+  "lng": -3.70918040555026
+ }
+]
