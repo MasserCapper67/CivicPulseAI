@@ -93,3 +93,24 @@ def test_punto_permitido_existe_aunque_el_borde_haga_entrantes(destino):
     # Apartarse 30 m del borde podía volver a caer dentro del término (entrantes del límite) y el punto desaparecía
     p = punto_permitido(*destino, "zbe_madrid")
     assert p is not None and not TERMINO.contains(shapely.Point(p))
+
+
+def test_coste_parking_sin_maximo_no_inventa_estancias_largas():
+    # Piamonte: tramos por minuto hasta el 541 y sin máximo diario: más allá, el precio es desconocido
+    piamonte = [{"desde": 0, "hasta": 30, "periodo": "minutos", "precio": 0.04},
+                {"desde": 31, "hasta": 541, "periodo": "minutos", "precio": 0.05}]
+    assert coste_parking(piamonte, 120) is not None
+    assert coste_parking(piamonte, 12 * 60) is None
+    assert coste_parking(piamonte, 24 * 60) is None
+
+
+def test_coste_parking_con_hueco_entre_tramos_es_desconocido():
+    hueco = [{"desde": 0, "hasta": 30, "periodo": "minutos", "precio": 0.04},
+             {"desde": 91, "hasta": 600, "periodo": "minutos", "precio": 0.05}]
+    assert coste_parking(hueco, 20) is not None
+    assert coste_parking(hueco, 120) is None
+
+
+def test_coste_parking_admite_tramos_que_empiezan_en_el_minuto_1_o_2():
+    # El servicio mezcla tramos que empiezan en 0, 1 o 2 (Piamonte: desde el minuto 2 hasta el 541)
+    assert coste_parking([{"desde": 2, "hasta": 541, "periodo": "minutos", "precio": 0.05}], 120) == pytest.approx(5.95)

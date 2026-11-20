@@ -40,6 +40,13 @@ def coste_parking(tarifas, minutos):
     maximo = next((t for t in tarifas if t["periodo"] == "maximo"), None)
     if maximo and minutos >= maximo["desde"]:
         return maximo["precio"]
+    cubierto = 0  # hasta qué minuto llegan los tramos sin huecos
+    for t in sorted(por_minuto, key=lambda t: t["desde"]):
+        if t["desde"] > cubierto + 2:  # margen de 1 minuto: el servicio empieza los tramos en 0, 1 o 2
+            break
+        cubierto = max(cubierto, t["hasta"])
+    if minutos > cubierto:
+        return None  # la estancia supera lo publicado: precio desconocido, no se inventa
     total = sum(max(0, min(minutos, t["hasta"]) - max(t["desde"] - 1, 0)) * t["precio"] for t in por_minuto)
     return round(min(total, maximo["precio"]) if maximo else total, 2)
 
